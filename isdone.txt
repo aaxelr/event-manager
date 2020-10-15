@@ -1,4 +1,8 @@
 Our Definition of Done:
 
-
-
+Uppgiften är klar när den: 
+* är incheckad i din git-branch.
+* är testad för tänkt bruk.
+* är testad av minst en annan gruppmedlem.
+* är dokumenterad (åminstone välkommenterad kod).
+* (ev är testad för fel?)
