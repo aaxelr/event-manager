@@ -1,0 +1,88 @@
+* {
+    margin: 0;
+    padding: 0;
+    background-color: #d1d1d1;
+    font-family: 'Cabin', sans-serif;
+}
+
+.navigation {
+    display: flex;
+    justify-content: space-between;
+    width: 95%;
+    max-width: 1920px;
+    margin: 20px auto auto auto;
+    border: 1px solid black;
+    box-shadow: 5px 10px 8px #888888;
+}
+
+.navigation>a {
+    text-decoration: none;
+    color: #4c4c4c;
+    font-size: 2.5em;
+    padding: 15px;
+}
+
+a:hover {
+    color: #F2B085;
+}
+
+.picture>img {
+    display: block;
+    /*Bild försvinner om man gör fönstret mindre*/
+    margin: auto auto;
+    width: 10%;
+    height: 90%;
+}
+
+.loggin>form {
+    margin: 45px 10px auto auto;
+    /*Problem om man gör fönstret mindre*/
+    height: 20px;
+}
+
+.loggin>form>input {
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 3px;
+}
+
+.loggin>form>button {
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 2px;
+}
+
+.loggin>form>label {
+    margin-right: 5px;
+    font-weight: bold;
+}
+
+footer {
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    bottom: 5px;
+    left: 17px;
+    width: 95%;
+    height: 50px;
+    max-width: 1920px;
+    margin: auto auto 20px auto;
+    border: 1px solid black;
+    box-shadow: 5px 10px 8px #888888;
+}
+
+.picture-footer>img {
+    /* display: block; */
+    position: absolute;
+    margin: auto auto;
+    width: 5%;
+    height: 50%;
+}
+
+footer>address>a,
+p {
+    float: left;
+    display: float;
+    border: #4c4c4c solid;
+    font-size: 8px;
+}
