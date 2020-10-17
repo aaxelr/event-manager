@@ -1,10 +1,17 @@
+<<<<<<< HEAD
 * {
+=======
+*{
+>>>>>>> 5c5016655d894c1ba291548552a9cc4a4e2e5007
     margin: 0;
     padding: 0;
     background-color: #d1d1d1;
     font-family: 'Cabin', sans-serif;
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 5c5016655d894c1ba291548552a9cc4a4e2e5007
 .navigation {
     display: flex;
     justify-content: space-between;
@@ -14,13 +21,18 @@
     border: 1px solid black;
     box-shadow: 5px 10px 8px #888888;
 }
+<<<<<<< HEAD
 
 .navigation>a {
+=======
+.navigation > a {
+>>>>>>> 5c5016655d894c1ba291548552a9cc4a4e2e5007
     text-decoration: none;
     color: #4c4c4c;
     font-size: 2.5em;
     padding: 15px;
 }
+<<<<<<< HEAD
 
 a:hover {
     color: #F2B085;
@@ -29,10 +41,18 @@ a:hover {
 .picture>img {
     display: block;
     /*Bild försvinner om man gör fönstret mindre*/
+=======
+a:hover {
+    color: #F2B085;
+}
+.picture > img {
+    display: block; /*Bild försvinner om man gör fönstret mindre*/
+>>>>>>> 5c5016655d894c1ba291548552a9cc4a4e2e5007
     margin: auto auto;
     width: 10%;
     height: 90%;
 }
+<<<<<<< HEAD
 
 .loggin>form {
     margin: 45px 10px auto auto;
@@ -41,16 +61,28 @@ a:hover {
 }
 
 .loggin>form>input {
+=======
+.loggin > form {
+    margin: 45px 10px auto auto; /*Problem om man gör fönstret mindre*/
+    height: 20px;
+}
+.loggin > form > input {
+>>>>>>> 5c5016655d894c1ba291548552a9cc4a4e2e5007
     border: 1px solid black;
     border-radius: 5px;
     padding: 3px;
 }
+<<<<<<< HEAD
 
 .loggin>form>button {
+=======
+.loggin > form > button {
+>>>>>>> 5c5016655d894c1ba291548552a9cc4a4e2e5007
     border: 1px solid black;
     border-radius: 5px;
     padding: 2px;
 }
+<<<<<<< HEAD
 
 .loggin>form>label {
     margin-right: 5px;
@@ -95,3 +127,9 @@ footer>div>p {
     margin: 10px;
     font-size: 8px;
 }
+=======
+.loggin > form > label {
+    margin-right: 5px;
+    font-weight: bold;
+}
+>>>>>>> 5c5016655d894c1ba291548552a9cc4a4e2e5007
