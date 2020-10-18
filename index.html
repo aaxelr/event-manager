@@ -8,26 +8,50 @@
     <link rel="stylesheet" href="style.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Cabin:wght@400;500;600;700&display=swap');
-        </style>
+    </style>
 </head>
 
 <body>
-    <!--Navigation-->
-    <div class="navigation">
-        <a href="#">ACME</a>
-        <a href="#">Evenemang</a>
-        <div class="picture">
-            <img src="Pictures/Group 1.png" alt="Logga">
+    <header>
+        <!--Navigation-->
+        <nav class="navigation">
+            <a href="#">ACME</a>
+            <a href="#">Evenemang</a>
+            <div class="picture">
+                <img src="Pictures/Group 1.png" alt="Logga">
+            </div>
+            <div class="login">
+                <form>
+                    <label for="username">Login:</label>
+                    <input type="text" name="username" id="username" placeholder="Username">
+                    <input type="password" name="password" id="password" placeholder="Password">
+                    <button>Login</button>
+                </form>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div id="maincontent">
+            <section id="description">
+                <p>
+                    <h2>kort om företaget?</h2>
+                </p>
+            </section>
+            <div id="mainevents">
+                <section class="event 1">
+                    <img src="Pictures/Group 1.png" alt="event 1">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident cum magni ab iste ex
+                        inventore?</p>
+                </section>
+                <section class="event 2">
+                    <img src="Pictures/Group 1.png" alt="event 2">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi qui corporis nihil?</p>
+                </section>
+            </div>
         </div>
-        <div class="loggin">
-            <form>
-                <label for="username">Loggin:</label>
-                <input type="text" name="username" id="username" placeholder="Username">
-                <input type="text" name="password" id="password" placeholder="Password">
-                <button>Login</button>
-            </form>
-        </div>
-    </div>
+    </main>
+
     <script src="main.js"></script>
 </body>
 

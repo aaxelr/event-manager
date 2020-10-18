@@ -1,9 +1,13 @@
-*{
+* {
     margin: 0;
     padding: 0;
     background-color: #d1d1d1;
     font-family: 'Cabin', sans-serif;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
 }
+
 .navigation {
     display: flex;
     justify-content: space-between;
@@ -13,36 +17,79 @@
     border: 1px solid black;
     box-shadow: 5px 10px 8px #888888;
 }
+
 .navigation > a {
     text-decoration: none;
     color: #4c4c4c;
     font-size: 2.5em;
     padding: 15px;
 }
+
 a:hover {
     color: #F2B085;
 }
+
 .picture > img {
-    display: block; /*Bild försvinner om man gör fönstret mindre*/
+    display: block;
+    /*Bild försvinner om man gör fönstret mindre*/
     margin: auto auto;
     width: 10%;
     height: 90%;
 }
-.loggin > form {
-    margin: 45px 10px auto auto; /*Problem om man gör fönstret mindre*/
+
+.login > form {
+    margin: 45px 10px auto auto;
+    /*Problem om man gör fönstret mindre*/
     height: 20px;
 }
-.loggin > form > input {
+
+.login > form > input {
     border: 1px solid black;
     border-radius: 5px;
     padding: 3px;
 }
-.loggin > form > button {
+
+.login > form > button {
     border: 1px solid black;
     border-radius: 5px;
     padding: 2px;
 }
-.loggin > form > label {
+
+.login > form > label {
     margin-right: 5px;
     font-weight: bold;
+}
+
+#maincontent {
+    justify-content: space-between;
+    display: flex;
+    margin: 20px auto auto auto;
+    max-width: 1920px;
+    width: 95%;
+
+    border: 1px solid black;
+}
+
+#description {
+    justify-content: space-between;
+    display: flex;
+    margin: 20px auto auto auto;
+    max-width: 1000px;
+    width: 95%;
+
+    border: 1px solid black;
+}
+
+#mainevents {
+    justify-content: space-between;
+    overflow: visible;
+    display: flex;
+    max-width: 200px;
+
+    border: 1px solid black;
+}
+
+.events {
+    width: 300px;
+    
 }
