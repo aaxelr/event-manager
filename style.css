@@ -24,55 +24,37 @@
     
     a:hover {
         color: #F2B085;
-    }
-    
-    .picture>img {
-        display: block;
-        /*Bild försvinner om man gör fönstret mindre*/
-    }
-    
-    a:hover {
-        color: #F2B085;
-    }
-    
+    }    
     .picture>img {
         display: block;
         /*Bild försvinner om man gör fönstret mindre*/
         margin: auto auto;
         width: 10%;
         height: 90%;
-    }
-    
+    }    
     .loggin>form {
-        margin: 45px 10px auto auto;
+        margin: 5px auto auto;
         /*Problem om man gör fönstret mindre*/
         height: 20px;
-    }
-    /* .loggin>form>input { */
-    
-    .loggin>form {
-        margin: 45px 10px auto auto;
-        /*Problem om man gör fönstret mindre*/
-        height: 20px;
-    }
-    
+    }  
     .loggin>form>input {
         border: 1px solid black;
         border-radius: 5px;
         padding: 3px;
-    }
-    
-    .loggin>form>button {
-        border: 1px solid black;
-        border-radius: 5px;
-        padding: 2px;
-    }
-    
+    }    
     .loggin>form>label {
         margin-right: 5px;
         font-weight: bold;
+    }    
+    .loggin>form>button {
+        border-radius: 5px;
+        font-weight: bold;
+        margin-top: 2px;
+        padding: 2px;
+    }  
+    button:hover {
+        color: #F2B085;
     }
-    
     footer {
         position: fixed;
         display: flex;
@@ -112,7 +94,4 @@
         font-size: 8px;
     }
     
-    .loggin>form>label {
-        margin-right: 5px;
-        font-weight: bold;
-    }
+    
