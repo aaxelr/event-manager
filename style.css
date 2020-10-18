@@ -3,6 +3,7 @@
         padding: 0;
         font-family: 'Cabin', sans-serif;
     }
+    
     body {
         background-image: url("Pictures/Background-img.jpg");
         background-color: #cccccc;
@@ -12,6 +13,7 @@
         background-size: cover;
         position: relative;
     }
+    
     .navigation {
         background-color: #4c4c4c;
         display: flex;
@@ -34,38 +36,45 @@
     
     a:hover {
         color: #F2B085;
-    }    
+    }
+    
     .picture>img {
         display: block;
         /*Bild försvinner om man gör fönstret mindre*/
         margin: auto auto;
         width: 10%;
         height: 90%;
-    }    
+    }
+    
     .loggin>form {
         margin: 25px auto auto auto;
         /*Problem om man gör fönstret mindre*/
         height: 20px;
-    }  
+    }
+    
     .loggin>form>input {
         border: 1px solid black;
         border-radius: 5px;
         padding: 3px;
         width: 30%;
-    }    
+    }
+    
     .loggin>form>label {
         color: #d1d1d1;
         font-weight: bold;
-    }    
+    }
+    
     .loggin>form>button {
         border-radius: 5px;
         font-weight: bold;
         margin-top: 2px;
         padding: 2px;
-    }  
+    }
+    
     button:hover {
         color: #F2B085;
     }
+    
     footer {
         border-radius: 5px;
         background-color: #4c4c4c;
@@ -75,16 +84,16 @@
         left: 40px;
         justify-content: space-between;
         width: 95%;
-        height: 70px;
+        height: 40px;
         max-width: 1920px;
-        margin: 20px auto auto auto;
+        margin: 21px auto auto auto;
         border: 1px solid black;
         box-shadow: 5px 10px 8px black;
     }
     
     .picture-footer>img {
         display: block;
-        margin: 0 20% 0 20%;
+        margin: 0 10% 0 43%;
         max-width: 300px;
         width: 10%;
         height: 50%;
@@ -94,15 +103,19 @@
     p {
         color: #d1d1d1;
         float: right;
-        font-size: 8px;
+        font-size: 10px;
         width: 100%;
+        margin: 1em 2em 3em 0;
     }
     
     footer>div>p {
         color: #d1d1d1;
         float: left;
-        margin: 10px;
-        font-size: 8px;
+        font-size: 10px;
+        width: 100%;
+        margin: 1.3em 2em 3em 3em;
     }
     
-    
+    .picture-socialmedia {
+        margin: 0.7em 0 0 -10em;
+    }
