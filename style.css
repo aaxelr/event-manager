@@ -1,23 +1,33 @@
     * {
         margin: 0;
         padding: 0;
-        background-color: #d1d1d1;
         font-family: 'Cabin', sans-serif;
     }
-    
+    body {
+        background-image: url("Pictures/Background-img.jpg");
+        background-color: #cccccc;
+        height: 1080px;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+    }
     .navigation {
+        background-color: #4c4c4c;
         display: flex;
         justify-content: space-between;
         width: 95%;
+        height: 70px;
         max-width: 1920px;
-        margin: 20px auto auto auto;
+        margin: auto auto;
         border: 1px solid black;
-        box-shadow: 5px 10px 8px #888888;
+        box-shadow: 5px 10px 8px black;
+        border-radius: 5px;
     }
     
     .navigation>a {
         text-decoration: none;
-        color: #4c4c4c;
+        color: #d1d1d1;
         font-size: 2.5em;
         padding: 15px;
     }
@@ -33,7 +43,7 @@
         height: 90%;
     }    
     .loggin>form {
-        margin: 5px auto auto;
+        margin: 25px auto auto auto;
         /*Problem om man gör fönstret mindre*/
         height: 20px;
     }  
@@ -41,9 +51,10 @@
         border: 1px solid black;
         border-radius: 5px;
         padding: 3px;
+        width: 30%;
     }    
     .loggin>form>label {
-        margin-right: 5px;
+        color: #d1d1d1;
         font-weight: bold;
     }    
     .loggin>form>button {
@@ -56,17 +67,19 @@
         color: #F2B085;
     }
     footer {
-        position: fixed;
+        border-radius: 5px;
+        background-color: #4c4c4c;
         display: flex;
+        position: fixed;
+        bottom: 20px;
+        left: 40px;
         justify-content: space-between;
-        bottom: 5px;
-        left: 20px;
         width: 95%;
-        height: 50px;
+        height: 70px;
         max-width: 1920px;
-        margin: auto auto 20px auto;
+        margin: 20px auto auto auto;
         border: 1px solid black;
-        box-shadow: 5px 10px 8px #888888;
+        box-shadow: 5px 10px 8px black;
     }
     
     .picture-footer>img {
@@ -79,16 +92,14 @@
     
     footer>address>a,
     p {
-        margin: 0;
-        border: 0;
-        padding: 0;
+        color: #d1d1d1;
         float: right;
-        display: float;
         font-size: 8px;
         width: 100%;
     }
     
     footer>div>p {
+        color: #d1d1d1;
         float: left;
         margin: 10px;
         font-size: 8px;
