@@ -15,7 +15,7 @@
     }
     
     .navigation {
-        background-color: #4c4c4c;
+        background-color: #13283B;
         display: flex;
         justify-content: space-between;
         width: 95%;
@@ -35,7 +35,7 @@
     }
     
     a:hover {
-        color: #F2B085;
+        color: #FFBC7D;
     }
     
     .picture>img {
@@ -72,7 +72,7 @@
     }
     
     button:hover {
-        color: #F2B085;
+        color: #FFBC7D;
     }
 
     #maincontent {
@@ -89,29 +89,39 @@
     }
     
     .event {
-        background-color: rgba(0, 0, 0, 0.3);
+        background-color: #13283bcc;
+        /*background-color: rgba(0, 0, 0, 0.6);*/
         border-radius: 12px;
+        padding: 20px;
     }
 
     .event:hover {
-        background-color: rgba(0, 0, 0, 0.6);
+        background-color: #13283bf3;
+        cursor: pointer;
+        color: #FFBC7D;
     }
 
     .event > p,
     .event > img {
-        color: #FFF;
+        color: #d1d1d1;
         text-align: justify;
         width: 400px;
         margin: auto;
+        border-radius: 12px;
     }
     
     .event > h2 {
         margin: 20px 0 0 0;
+        color: #d1d1d1;
+        margin-bottom: 20px;
     }
     
     .event > p {
         line-height: 1.5em;
         font-size: 1em;
+    }
+    .event > p:hover {
+        color: #FFBC7D;
     }
     
     .main-info-border {
@@ -120,7 +130,7 @@
         height: 150px;
         padding: 20px;
         /* background-color: #F2B085; */
-        color: #4c4c4c;
+        color: #13283B;
         display: flex;
         justify-content: center;
     }
@@ -128,18 +138,22 @@
     .main-info,
     .main-info > h2 {
         /* background-color: #F2B085; */
-        color: #4c4c4c;
+        color: #d1d1d1;
         font-style: italic;
         text-align: justify;
+        
     }
     
     .main-info {
         max-width: 600px;
+        background-color: #13283bcc;
+        border-radius: 12px;
+        padding: 20px;  
     }
     
     footer {
         border-radius: 5px;
-        background-color: #4c4c4c;
+        background-color: #13283B;
         display: flex;
         position: fixed;
         bottom: 20px;
