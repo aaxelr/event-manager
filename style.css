@@ -46,25 +46,25 @@
         height: 90%;
     }
     
-    .loggin>form {
+    .login>form {
         margin: 25px auto auto auto;
         /*Problem om man gör fönstret mindre*/
         height: 20px;
     }
     
-    .loggin>form>input {
+    .login>form>input {
         border: 1px solid black;
         border-radius: 5px;
         padding: 3px;
         width: 30%;
     }
     
-    .loggin>form>label {
+    .login>form>label {
         color: #d1d1d1;
         font-weight: bold;
     }
     
-    .loggin>form>button {
+    .login>form>button {
         border-radius: 5px;
         font-weight: bold;
         margin-top: 2px;
@@ -73,6 +73,68 @@
     
     button:hover {
         color: #F2B085;
+    }
+
+    #maincontent {
+        width: 95%;
+        max-width: 1920px;
+        margin: 20px auto auto auto;
+        /* border: 1px solid black; */
+        /* box-shadow: 5px 10px 8px #888888; */
+    }
+    
+    .container {
+        display: flex;
+        justify-content: space-evenly;
+    }
+    
+    .event {
+        background-color: rgba(0, 0, 0, 0.3);
+        border-radius: 12px;
+    }
+
+    .event:hover {
+        background-color: rgba(0, 0, 0, 0.6);
+    }
+
+    .event > p,
+    .event > img {
+        color: #FFF;
+        text-align: justify;
+        width: 400px;
+        margin: auto;
+    }
+    
+    .event > h2 {
+        margin: 20px 0 0 0;
+    }
+    
+    .event > p {
+        line-height: 1.5em;
+        font-size: 1em;
+    }
+    
+    .main-info-border {
+        margin: 20px auto 50px auto;
+        width: 100%;
+        height: 150px;
+        padding: 20px;
+        /* background-color: #F2B085; */
+        color: #4c4c4c;
+        display: flex;
+        justify-content: center;
+    }
+    
+    .main-info,
+    .main-info > h2 {
+        /* background-color: #F2B085; */
+        color: #4c4c4c;
+        font-style: italic;
+        text-align: justify;
+    }
+    
+    .main-info {
+        max-width: 600px;
     }
     
     footer {

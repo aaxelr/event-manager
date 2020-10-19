@@ -13,25 +13,64 @@
 </head>
 
 <body>
-    <!--Navigation-->
-    <div class="navigation">
-        <a href="#">ACME</a>
-        <a href="#">Evenemang</a>
-        <div class="picture">
-            <img src="Pictures/Group 1.png" alt="Logga">
+    <header>
+        <!--Navigation-->
+        <nav class="navigation">
+            <a href="#">ACME</a>
+            <a href="#">Evenemang</a>
+            <div class="picture">
+                <img src="Pictures/Group 1.png" alt="Logga">
+            </div>
+            <div class="login">
+                <form>
+                    <label for="username">Login:</label>
+                    <input type="text" name="username" id="username" placeholder="Username">
+                    <input type="password" name="password" id="password" placeholder="Password">
+                    <button>Login</button>
+                </form>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div id="maincontent">
+            <div class="container">
+                <div class="main-info-border">
+                    <div class="main-info">
+                        <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum voluptatem distinctio veritatis
+                            provident cum quasi nostrum facilis adipisci. &mdash; Lorem Ipsum
+                        </h2>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="event">
+                    <img src="Pictures/Group 1.png" alt="eventplaceholder">
+                    <h2>event1</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat laboriosam, praesentium in
+                        repellendus asperiores adipisci omnis possimus, delectus voluptatem id eos dolores nam
+                        doloribus. Aut. Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam corporis saepe,
+                        reiciendis provident quas velit nisi fugiat. Magni, blanditiis non quod quisquam, aperiam
+                        voluptas tempora debitis molestiae odio placeat consequuntur?</p>
+                </div>
+                <div class="event">
+                    <img src="Pictures/Group 1.png" alt="eventplaceholder">
+                    <h2>event2</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita corporis cum numquam iusto
+                        obcaecati esse delectus, error optio. Voluptatem odit voluptas enim. Lorem ipsum dolor sit amet
+                        consectetur adipisicing elit. Pariatur atque magni ipsum quos exercitationem adipisci alias,
+                        totam cum vero reprehenderit facere dolore mollitia temporibus, sit ducimus! Lorem ipsum dolor
+                        sit amet, consectetur adipisicing elit. Quod quidem veniam dolorum!</p>
+                </div>
+            </div>
+
         </div>
-        <div class="loggin">
-            <form>
-                <label for="username">Login:</label>
-                <input type="text" name="username" id="username" placeholder="Username">
-                <input type="text" name="password" id="password" placeholder="Password">
-                <button>Login</button>
-            </form>
-        </div>
-    </div>
+    </main>
+
     <footer>
         <div>
-            <p><a href="http://www.acme.se">Mer om oss</a><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Vi finns även på:</b></p>
+            <p><a href="http://www.acme.se">Mer om oss</a><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Vi finns
+                    även på:</b></p>
             </p>
         </div>
         <div class="picture-socialmedia">
@@ -47,9 +86,13 @@
             <img src="Pictures/Group 1.png" alt="Logga">
         </div>
         <address>
-            <p><b>Kontakta oss:</b> &nbsp;&nbsp;  Email:&nbsp;&nbsp;<a href="mailto:acme@acme.se">acme@acme.se</a>&nbsp;&nbsp;&nbsp; Tel: &nbsp;&nbsp;010-55 22 33</p>
+            <p><b>Kontakta oss:</b> &nbsp;&nbsp; Email:&nbsp;&nbsp;<a
+                    href="mailto:acme@acme.se">acme@acme.se</a>&nbsp;&nbsp;&nbsp; Tel: &nbsp;&nbsp;010-55 22 33</p>
         </address>
     </footer>
+
+
+
     <script src="main.js"></script>
 </body>
 
