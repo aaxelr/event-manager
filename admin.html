@@ -15,26 +15,51 @@
   <header>
     <!--Navigation-->
     <nav class="navigation">
-        <div class="links">
-          <a href="index.html">ACME</a>
-        </div>
-        <div class="picture">
-            <img src="Pictures/Group 1.png" alt="Logga">
-        </div>
-        <div class="login">
-            <p>Välkommen, admin</p>
-            <form>
-                <!-- <label for="username">Login:</label>
+      <div class="links">
+        <a href="index.html">ACME</a>
+      </div>
+      <div class="picture">
+        <img src="Pictures/Group 1.png" alt="Logga">
+      </div>
+      <div class="login">
+        <form>
+          <!-- <label for="username">Login:</label>
                 <input type="text" name="username" id="username" placeholder="Username">
                 <input type="password" name="password" id="password" placeholder="Password"> -->
-                <button >Log out</button>
-            </form>
-        </div>
+          <button>Log out</button>
+        </form>
+      </div>
     </nav>
-</header>
+  </header>
 
-  <main>
-    
+  <main class="crud">
+    <div class="createForm">
+      <form>
+        <button id="createEventBtn" class="button" type="button">Skapa event</button>
+        <!-- vid tryck på knappen ska ett formulär med eventnamn, kategori och datum dyka upp -->
+      </form>
+    </div>
+    <table id="crudTable">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>eventnamn</th>
+          <th>kategori</th>
+          <th>datum</th>
+          <th></th>
+        </tr>
+          </thead>
+          <tbody>
+            <tr></tr>
+            <td>1</td>
+            <td>Party@Neverland Ranch</td>
+            <td>Festival</td>
+            <td>13-dec-2020</td>
+          <td><button class="button" type="button">Läs</button><button class="button"
+              type="button">Ändra</button><button class="button" type="button">Radera</button></th>
+            </tbody>
+      
+    </table>
 
   </main>
 
