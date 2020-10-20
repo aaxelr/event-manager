@@ -26,12 +26,13 @@
         box-shadow: 5px 10px 8px black;
         border-radius: 5px;
     }
+    
     .links {
         display: flex;
         justify-content: flex-start;
         margin-top: 10px;
     }
-
+    
     .links>a {
         text-decoration: none;
         color: #d1d1d1;
@@ -79,7 +80,7 @@
     button:hover {
         color: #FFBC7D;
     }
-
+    
     #maincontent {
         width: 95%;
         max-width: 1920px;
@@ -99,14 +100,14 @@
         border-radius: 12px;
         padding: 20px;
     }
-
+    
     .event:hover {
         background-color: #13283bf3;
         cursor: pointer;
     }
-
-    .event > p,
-    .event > img {
+    
+    .event>p,
+    .event>img {
         color: #d1d1d1;
         text-align: justify;
         width: 400px;
@@ -114,13 +115,13 @@
         border-radius: 12px;
     }
     
-    .event > h2 {
+    .event>h2 {
         margin: 20px 0 0 0;
         color: #d1d1d1;
         margin-bottom: 20px;
     }
     
-    .event > p {
+    .event>p {
         line-height: 1.5em;
         font-size: 1em;
     }
@@ -135,18 +136,18 @@
         display: flex;
         justify-content: center;
     }
-    .main-info > h2 {
+    
+    .main-info>h2 {
         /* background-color: #F2B085; */
         color: #d1d1d1;
         text-align: justify;
-        
     }
     
     .main-info {
         max-width: 600px;
         background-color: #13283bcc;
         border-radius: 12px;
-        padding: 20px;  
+        padding: 20px;
     }
     
     footer {
@@ -162,7 +163,6 @@
         margin: 40px auto auto auto;
     }
     
-   
     .aboutUs>a {
         display: block;
         text-decoration: none;
@@ -170,21 +170,61 @@
         font-size: 1.5em;
         margin: 5px 10px auto auto;
     }
-
+    
     .picture-socialmedia {
         display: block;
         color: #d1d1d1;
         margin-left: 40px;
         margin-top: 5px;
     }
-    .picture-socialmedia > img {
+    
+    .picture-socialmedia>img {
         height: 80%;
         cursor: pointer;
     }
-    .address, a {
+    
+    .address,
+    a {
         font-style: normal;
         font-size: 1em;
         text-decoration: none;
         color: #d1d1d1;
         margin-right: 15px;
+    }
+    
+    .eventContent {
+        display: flex;
+        justify-content: space-around;
+        margin: 100px auto;
+        width: 95%;
+        height: 550px;
+    }
+    
+    .eventBars {
+        max-width: 45%;
+    }
+    
+    .eventBars>div {
+        border: 1px solid black;
+        max-width: 100%;
+        border-radius: 12px;
+        padding: 10px;
+        background-color: #13283bf3;
+        color: #d1d1d1;
+        margin: 10px 0;
+    }
+    
+    .eventInfo {
+        border: 1px solid black;
+        max-width: 45%;
+        border-radius: 12px;
+        padding: 10px;
+        background-color: #13283bf3;
+        color: #d1d1d1;
+        margin: 10px 0;
+    }
+    
+    .eventInfo>img {
+        max-width: 100%;
+        border-radius: 12px;
     }
