@@ -7,7 +7,7 @@
     body {
         background-image: url("Pictures/Background-img.jpg");
         background-color: #cccccc;
-        height: 1080px;
+        height: 1000px;
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
@@ -26,12 +26,17 @@
         box-shadow: 5px 10px 8px black;
         border-radius: 5px;
     }
-    
-    .navigation>a {
+    .links {
+        display: flex;
+        justify-content: flex-start;
+        margin-top: 10px;
+    }
+
+    .links>a {
         text-decoration: none;
         color: #d1d1d1;
         font-size: 2.5em;
-        padding: 15px;
+        margin-left: 15px;
     }
     
     a:hover {
@@ -42,8 +47,8 @@
         display: block;
         /*Bild försvinner om man gör fönstret mindre*/
         margin: auto auto;
-        width: 10%;
-        height: 90%;
+        width: 60px;
+        height: 60px;
     }
     
     .login>form {
@@ -98,7 +103,6 @@
     .event:hover {
         background-color: #13283bf3;
         cursor: pointer;
-        color: #FFBC7D;
     }
 
     .event > p,
@@ -120,9 +124,6 @@
         line-height: 1.5em;
         font-size: 1em;
     }
-    .event > p:hover {
-        color: #FFBC7D;
-    }
     
     .main-info-border {
         margin: 20px auto 50px auto;
@@ -134,12 +135,9 @@
         display: flex;
         justify-content: center;
     }
-    
-    .main-info,
     .main-info > h2 {
         /* background-color: #F2B085; */
         color: #d1d1d1;
-        font-style: italic;
         text-align: justify;
         
     }
@@ -155,43 +153,38 @@
         border-radius: 5px;
         background-color: #13283B;
         display: flex;
-        position: fixed;
-        bottom: 20px;
-        left: 40px;
         justify-content: space-between;
         width: 95%;
         height: 40px;
         max-width: 1920px;
-        margin: 21px auto auto auto;
         border: 1px solid black;
         box-shadow: 5px 10px 8px black;
+        margin: 40px auto auto auto;
     }
     
-    .picture-footer>img {
+   
+    .aboutUs>a {
         display: block;
-        margin: 0 10% 0 43%;
-        max-width: 300px;
-        width: 10%;
-        height: 50%;
-    }
-    
-    footer>address>a,
-    p {
+        text-decoration: none;
         color: #d1d1d1;
-        float: right;
-        font-size: 10px;
-        width: 100%;
-        margin: 1em 2em 3em 0;
+        font-size: 1.5em;
+        margin: 5px 10px auto auto;
     }
-    
-    footer>div>p {
-        color: #d1d1d1;
-        float: left;
-        font-size: 10px;
-        width: 100%;
-        margin: 1.3em 2em 3em 3em;
-    }
-    
+
     .picture-socialmedia {
-        margin: 0.7em 0 0 -10em;
+        display: block;
+        color: #d1d1d1;
+        margin-left: 40px;
+        margin-top: 5px;
+    }
+    .picture-socialmedia > img {
+        height: 80%;
+        cursor: pointer;
+    }
+    .address, a {
+        font-style: normal;
+        font-size: 1em;
+        text-decoration: none;
+        color: #d1d1d1;
+        margin-right: 15px;
     }
