@@ -1,18 +1,21 @@
 //CRUD -- Create, Read, Update, Delete
 
 class Event {
-  constructor(name, date, category) {
-    this.id; //tilldela n+1 för varje nytt event?
+  constructor(id, name, date, category, text) {
+    this.id = id;
     this.name = name;
     this.date = date;
     this.category = category;
+    this.text = text;
   }
 
 }
 
 document.addEventListener("DOMContentLoaded", () => {
 
-  const createForm = () => {
+  const createEvent = () => {
+
+    const eventDiv = document.createElement("div");
 
     const eventNameLabel = document.createElement("label");
     eventNameLabel.setAttribute("for", "eventNameInput");
@@ -33,27 +36,56 @@ document.addEventListener("DOMContentLoaded", () => {
     eventDateInput.setAttribute("type", "date");
 
     const eventCategoryLabel = document.createElement("label");
-    eventCategoryLabel.setAttribute("for", "eventCategoryeInput");
+    eventCategoryLabel.setAttribute("for", "eventCategoryInput");
     eventCategoryLabel.innerText = "Kategori";
 
     const eventCategoryInput = document.createElement("input");
     eventCategoryInput.setAttribute("id", "eventCategoryInput");
     eventCategoryInput.setAttribute("name", "eventCategory");
-    eventCategoryInput.setAttribute("type", "text"); 
+    eventCategoryInput.setAttribute("type", "text");
     //borde bara gå att välja bland våra förvalda kategorier...
 
-    //Ska rubrik, brödtext och bild läggas till här också tro..?
-    
-    createEventBtn.before(eventNameLabel, eventNameInput, eventDateLabel, eventDateInput, eventCategoryLabel, eventCategoryInput);
+    const eventTextLabel = document.createElement("label");
+    eventTextLabel.setAttribute("for", "eventTextInput");
+    eventTextLabel.innerText = "Text";
 
-    //här borde createEventBtn gömmas och en ny sparaknapp dyka upp.
-    //ev ändra eventlyssnare på createEventBtn och ändra innerText till att "Spara".
+    const eventTextInput = document.createElement("input");
+    eventTextInput.setAttribute("id", "eventTextInput");
+    eventTextInput.setAttribute("name", "eventText");
+    eventTextInput.setAttribute("type", "text");
+
+    //Ska bild läggas till här också tro..?
+
+    eventDiv.append(eventNameLabel, eventNameInput, eventDateLabel, eventDateInput, eventCategoryLabel, eventCategoryInput, eventTextLabel, eventTextInput);
+    createEventBtn.after(eventDiv);
+    createEventBtn.setAttribute("disabled", "");
+
+    const saveEventBtn = document.createElement("button");
+    saveEventBtn.setAttribute("id", "saveEventBtn");
+    saveEventBtn.setAttribute("type", "button");
+    saveEventBtn.innerText = "Spara";
+    saveEventBtn.addEventListener("click", saveEvent(eventNameInput.value, eventDateInput.value, eventCategoryInput.value, eventTextInput.input));
+
+    eventDiv.after(saveEventBtn);
 
     console.log("skapar eventformulär");
+
   }
 
+  //fungerar inte riktigt...
+  function saveEvent(name, date, category, text) {
+    let id = 1;
+    let addedEvent = new Event(id, name, date, category, text);
+    id++;
+    console.log("sparar eventformulär");
+    console.log(addedEvent);
+  }
+
+  //här bör addedEvent göras om till JSON-objekt så det kan sparas i localStorage?
+
+
   let createEventBtn = document.getElementById("createEventBtn");
-  createEventBtn.addEventListener("click", createForm);
+  createEventBtn.addEventListener("click", createEvent);
 
 
 });
