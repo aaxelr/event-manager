@@ -72,19 +72,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
   }
 
-  //fungerar inte riktigt...
   function saveEvent(name, date, category, text) {
     let addedEvent = new Event(id, name, date, category, text);
     id++;
     console.log("sparar eventformulär");
-    console.log(addedEvent);
+    localStorage.setItem(`event${addedEvent.id}`, JSON.stringify(addedEvent));
   }
-
-  //här bör addedEvent göras om till JSON-objekt så det kan sparas i localStorage?
-
 
   let createEventBtn = document.getElementById("createEventBtn");
   createEventBtn.addEventListener("click", createEvent);
-
 
 });
