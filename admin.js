@@ -12,7 +12,7 @@ class Event {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-
+  let id = 1;
   const createEvent = () => {
 
     const eventDiv = document.createElement("div");
@@ -54,8 +54,6 @@ document.addEventListener("DOMContentLoaded", () => {
     eventTextInput.setAttribute("name", "eventText");
     eventTextInput.setAttribute("type", "text");
 
-    //Ska bild läggas till här också tro..?
-
     eventDiv.append(eventNameLabel, eventNameInput, eventDateLabel, eventDateInput, eventCategoryLabel, eventCategoryInput, eventTextLabel, eventTextInput);
     createEventBtn.after(eventDiv);
     createEventBtn.setAttribute("disabled", "");
@@ -64,17 +62,18 @@ document.addEventListener("DOMContentLoaded", () => {
     saveEventBtn.setAttribute("id", "saveEventBtn");
     saveEventBtn.setAttribute("type", "button");
     saveEventBtn.innerText = "Spara";
-    saveEventBtn.addEventListener("click", saveEvent(eventNameInput.value, eventDateInput.value, eventCategoryInput.value, eventTextInput.input));
-
+    saveEventBtn.addEventListener("click", () => {
+      saveEvent(eventNameInput.value, eventDateInput.value, eventCategoryInput.value, eventTextInput.value);
+      
+    });
+    
     eventDiv.after(saveEventBtn);
-
     console.log("skapar eventformulär");
 
   }
 
   //fungerar inte riktigt...
   function saveEvent(name, date, category, text) {
-    let id = 1;
     let addedEvent = new Event(id, name, date, category, text);
     id++;
     console.log("sparar eventformulär");
