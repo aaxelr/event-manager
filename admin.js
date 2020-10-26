@@ -13,8 +13,9 @@ class Event {
 
 document.addEventListener("DOMContentLoaded", () => {
   let id = 1;
-  const createEvent = () => {
+  const createdEvents = document.getElementById("createdEvents");
 
+  const createEvent = () => {
     const eventDiv = document.createElement("div");
 
     const eventNameLabel = document.createElement("label");
@@ -64,7 +65,7 @@ document.addEventListener("DOMContentLoaded", () => {
     saveEventBtn.innerText = "Spara";
     saveEventBtn.addEventListener("click", () => {
       saveEvent(eventNameInput.value, eventDateInput.value, eventCategoryInput.value, eventTextInput.value);
-      
+      showCreatedEvent(eventNameInput.value, eventDateInput.value, eventCategoryInput.value, eventTextInput.value);
     });
     
     eventDiv.after(saveEventBtn);
@@ -77,6 +78,29 @@ document.addEventListener("DOMContentLoaded", () => {
     id++;
     console.log("sparar eventformulär");
     localStorage.setItem(`event${addedEvent.id}`, JSON.stringify(addedEvent));
+  }
+
+  function showCreatedEvent(name, date, category, text) {
+    const eventTr = document.createElement("tr");
+    eventTr.classList.add(date, category);
+
+    const createdEventName = document.createElement("td");
+    createdEventName.innerText = name;
+    eventTr.append(createdEventName);
+
+    const createdEventDate = document.createElement("td");
+    createdEventDate.innerText = date;
+    eventTr.append(createdEventDate);
+
+    const createdEventCategory = document.createElement("td");
+    createdEventCategory.innerText = category;
+    eventTr.append(createdEventCategory);
+
+    const createdEventText = document.createElement("td");
+    createdEventText.innerText = text;
+    eventTr.append(createdEventText);
+
+    createdEvents.append(eventTr);
   }
 
   let createEventBtn = document.getElementById("createEventBtn");
