@@ -1,4 +1,4 @@
-var mydate = [
+/*var mydate = [
     "2019-10-01",
     "2016-09-13",
     "2014-09-05",
@@ -10,11 +10,34 @@ mydate.sort(function(a, b) {
         b1 = b.split('-');
     return new Date(a1[0], a1[1], a1[2]) - new Date(b1[0], b1[1], b1[2]);
 });
-console.log(mydate);
+console.log(mydate);*/
+
 document.addEventListener('DOMContentLoaded', function(e) {
+
+    let eventArray = []
     let eventBtn = document.getElementById("eventBtn");
 
-    let titleArray = [];
+    eventBtn.addEventListener("click", function (e) {
+        
+    
+    for (let i = 1; i <= localStorage.length; i++){
+        let event = JSON.parse(window.localStorage.getItem('event' + [i]));;
+        eventArray.push(event);
+    }  
+    for (let i = 0; i <= localStorage.length; i++) {
+        console.log(eventArray[i].date);
+    } 
+    createEvents();
+})
+
+function createEvents () {
+    for (let i = 1; i <= localStorage.length; i++) {
+        const eventDiv = document.createElement("div");
+        eventDiv.setAttribute("class", eventArray[i].date);
+    }
+}
+
+    /*let titleArray = [];
     let dateArray = [];
     let categoryArray = [];
 
@@ -31,7 +54,7 @@ document.addEventListener('DOMContentLoaded', function(e) {
         });
         console.log(dateArray);
 
-    })
+    })*/
 
 
 
