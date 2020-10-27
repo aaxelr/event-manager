@@ -72,6 +72,19 @@ document.addEventListener("DOMContentLoaded", () => {
     eventDiv.after(saveEventBtn);
     console.log("skapar eventformulär");
 
+    const doneBtn = document.createElement("button");
+    doneBtn.setAttribute("id", "doneBtn");
+    doneBtn.setAttribute("type", "button");
+    doneBtn.innerText = "Klar";
+    doneBtn.addEventListener("click", () => {
+      createEventBtn.disabled = false;
+      eventDiv.remove();
+      saveEventBtn.remove();
+      doneBtn.remove();
+    });
+    
+    createEventBtn.after(doneBtn);
+
   }
 
   function saveEvent(name, date, category, text) {
