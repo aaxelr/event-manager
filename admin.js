@@ -26,6 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
     eventNameInput.setAttribute("id", "eventNameInput");
     eventNameInput.setAttribute("name", "eventName");
     eventNameInput.setAttribute("type", "text");
+    eventNameInput.setAttribute("required", "");
 
     const eventDateLabel = document.createElement("label");
     eventDateLabel.setAttribute("for", "eventDateInput");
@@ -35,6 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
     eventDateInput.setAttribute("id", "eventDateInput");
     eventDateInput.setAttribute("name", "eventDate");
     eventDateInput.setAttribute("type", "date");
+    eventDateInput.setAttribute("required", "");
 
     const eventCategoryLabel = document.createElement("label");
     eventCategoryLabel.setAttribute("for", "eventCategoryInput");
@@ -44,7 +46,8 @@ document.addEventListener("DOMContentLoaded", () => {
     eventCategoryInput.setAttribute("id", "eventCategoryInput");
     eventCategoryInput.setAttribute("name", "eventCategory");
     eventCategoryInput.setAttribute("type", "text");
-    //borde bara gå att välja bland våra förvalda kategorier...
+    eventCategoryInput.setAttribute("required", "");
+    //borde bara gå att välja bland våra förvalda kategorier... TODO!
 
     const eventTextLabel = document.createElement("label");
     eventTextLabel.setAttribute("for", "eventTextInput");
@@ -54,6 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
     eventTextInput.setAttribute("id", "eventTextInput");
     eventTextInput.setAttribute("name", "eventText");
     eventTextInput.setAttribute("type", "text");
+    eventTextInput.setAttribute("required", "");
 
     eventDiv.append(eventNameLabel, eventNameInput, eventDateLabel, eventDateInput, eventCategoryLabel, eventCategoryInput, eventTextLabel, eventTextInput);
     createEventBtn.after(eventDiv);
@@ -89,10 +93,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function saveEvent(name, date, category, text) {
     let addedEvent = new Event(id, name, date, category, text);
-    id++;
     console.log("sparar eventformulär");
     localStorage.setItem(`event${addedEvent.id}`, JSON.stringify(addedEvent));
-    
   }
 
   function showCreatedEvent(name, date, category, text) {
@@ -101,21 +103,31 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const createdEventName = document.createElement("td");
     createdEventName.innerText = name;
-    eventTr.append(createdEventName);
 
     const createdEventDate = document.createElement("td");
     createdEventDate.innerText = date;
-    eventTr.append(createdEventDate);
 
     const createdEventCategory = document.createElement("td");
     createdEventCategory.innerText = category;
-    eventTr.append(createdEventCategory);
 
     const createdEventText = document.createElement("td");
     createdEventText.innerText = text;
-    eventTr.append(createdEventText);
+    
+    const checkboxTd = document.createElement("td");
+    const deleteCheckbox = document.createElement("input");
+    deleteCheckbox.setAttribute("id", `event${id}`);
+    console.log(deleteCheckbox);
 
+    checkboxTd.append(deleteCheckbox);
+    deleteCheckbox.setAttribute("type", "checkbox");
+    deleteCheckbox.addEventListener("click", () => {
+      deleteRow(deleteCheckbox.id);
+    });
+    
+    eventTr.append(createdEventName, createdEventText, createdEventDate, createdEventCategory, checkboxTd);
+    
     createdEvents.append(eventTr);
+    id++;
   }
 
   function clearInputs() {
@@ -124,6 +136,13 @@ document.addEventListener("DOMContentLoaded", () => {
     eventCategoryInput.value = "";
     eventTextInput.value = "";
   } 
+
+  function deleteRow(idToRemove) {
+    //ta bort rad --- TODO!
+
+    //ta bort från localStorage - fungerar!
+    localStorage.removeItem(idToRemove);
+  }
 
   let createEventBtn = document.getElementById("createEventBtn");
   createEventBtn.addEventListener("click", createEvent);
