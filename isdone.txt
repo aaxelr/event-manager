@@ -6,3 +6,6 @@ Uppgiften är klar när den:
 * är testad av minst en annan gruppmedlem.
 * är dokumenterad (åminstone välkommenterad kod).
 * (ev är testad för fel?)
+
+
+

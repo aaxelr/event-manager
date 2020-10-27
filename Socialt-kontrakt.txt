@@ -15,3 +15,34 @@ Vad gör vårt team bättre:
 Vi ska hjälpa varandra så att alla hänger med.
 Att inkludera alla så alla känner sig delaktiga. 
 Vi ska alla vara öppna för förslag.
+
+
+
+
+Start doing.
+
+
+Dagliga möten/avstämning. 
+Fler commits, oftare.
+Tydligare commit-meddelanden Använda mer brancher. Kommentera koden?   (göra klart koden bakom alla saker asap, får en känsla av att det släpar efter lite där iom att mycket är hårdkodat i dagsläget.)
+
+ha dagliga sprintmöten för att stämma av
+
+Strukturen på js i tidigare skede
+Tydligare trello-kort
+
+
+Stop doing 
+
+jag ska sluta skjuta upp saker – fråga i stället gruppmedlemmarna.
+fråga mer. 
+
+Continue doing
+
+Vara snälla <3 
+Dela länkar för att sprida kunskap
+Att vi har gemensamma sessioner där vi går igenom och har gemensam kodning
+Bra dialog mellan oss / lyhörda / god stämning
+Är inkluderande.
+Jobba tillsammans i grupp.  Jobba enskilt, ta kort i trello. 
+Peppa varandra vara öppna om saker
