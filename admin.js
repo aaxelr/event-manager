@@ -116,15 +116,15 @@ document.addEventListener("DOMContentLoaded", () => {
     const checkboxTd = document.createElement("td");
     const deleteCheckbox = document.createElement("input");
     deleteCheckbox.setAttribute("id", `event${id}`);
-    console.log(deleteCheckbox);
 
     checkboxTd.append(deleteCheckbox);
     deleteCheckbox.setAttribute("type", "checkbox");
     deleteCheckbox.addEventListener("click", () => {
-      deleteRow(deleteCheckbox.id);
+      eventTr.remove();
+      localStorage.removeItem(deleteCheckbox.id);
     });
     
-    eventTr.append(createdEventName, createdEventText, createdEventDate, createdEventCategory, checkboxTd);
+    eventTr.append(createdEventName, createdEventDate, createdEventCategory, createdEventText, checkboxTd);
     
     createdEvents.append(eventTr);
     id++;
@@ -136,13 +136,6 @@ document.addEventListener("DOMContentLoaded", () => {
     eventCategoryInput.value = "";
     eventTextInput.value = "";
   } 
-
-  function deleteRow(idToRemove) {
-    //ta bort rad --- TODO!
-
-    //ta bort från localStorage - fungerar!
-    localStorage.removeItem(idToRemove);
-  }
 
   let createEventBtn = document.getElementById("createEventBtn");
   createEventBtn.addEventListener("click", createEvent);
