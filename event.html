@@ -34,8 +34,23 @@
     </header>
 
 
-    <button type="button" id="eventBtn">Click ME!</button>
+    <form>
+        <label for="choseEvenet">Välj ditt event:</label>
+        <select id="eventSelect">
+          <option value="weddings">Bröllop</option>
+          <option value="events">Evenemang</option>
+          <option value="festivals">Festivaler</option>
+          <option value="conserts">Konserter</option>
+        </select>
+
+        <label class="selectDate" for="dateSelect">Välj datum:</label>
+        <input type="date" id="dateSelect" name="dateSelect">
+        <input type="submit">
+
+    </form>
+
     <main class="eventContent">
+
         <div class="eventBars">
             <div>
                 <h2 id="event-title1">Bröllop Sebbe</h2>
@@ -74,7 +89,7 @@
         </address>
     </footer>
 
-<script src="sort.js"></script>
+    <script src="sort.js"></script>
 </body>
 
 </html>
