@@ -117,6 +117,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const deleteCheckbox = document.createElement("input");
     deleteCheckbox.setAttribute("id", `event${id}`);
 
+    //delete-del
     checkboxTd.append(deleteCheckbox);
     deleteCheckbox.setAttribute("type", "checkbox");
     deleteCheckbox.addEventListener("click", () => {

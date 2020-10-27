@@ -272,12 +272,12 @@ a {
     color: black;
 }
 
-form {
+/* form {
     float: left;
     margin-top: 200px;
     margin-left: 100px;
     color: #ffffff;
-}
+} */
 
 .selectDate {
     margin-left: 40px;
@@ -294,7 +294,7 @@ form {
     border-radius: 12px;
     padding: 10px;
     background-color: #13283bf3;
-    color: #D1D1D1;
+    color: #d1d1d1;
     margin: 50px auto;
     display: flex;
     justify-content: space-between;
@@ -326,5 +326,5 @@ td {
 }
 
 #createEventBtn {
-    display: block;
+    display: inline;
 }
