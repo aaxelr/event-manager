@@ -287,3 +287,44 @@ form {
 #dateSelect {
     margin-left: 10px;
 }
+
+.crud {
+    border: 1px solid black;
+    max-width: 80%;
+    border-radius: 12px;
+    padding: 10px;
+    background-color: #13283bf3;
+    color: #D1D1D1;
+    margin: 50px auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    height: 550px;
+}
+
+#crudTable {
+    min-width: 600px;
+}
+
+#crudTable,
+th,
+td {
+    border: 2px solid #FFBC7D;
+    border-collapse: collapse;
+    padding: 10px 20px;
+}
+
+.button {
+    border-radius: 5px;
+    font-weight: bold;
+    margin: 5px;
+    padding: 2px 5px;
+}
+
+.button:hover {
+    color: #FFBC7D;
+}
+
+#createEventBtn {
+    display: block;
+}
