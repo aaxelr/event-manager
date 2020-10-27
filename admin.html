@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ACME | admin</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cabin:wght@400;500;600;700&display=swap');
+  </style>
+</head>
+
+<body>
+  <header>
+    <!--Navigation-->
+    <nav class="navigation">
+      <div class="links">
+        <a href="index.html">ACME</a>
+      </div>
+      <div class="picture">
+        <img src="Pictures/Group 1.png" alt="Logga">
+      </div>
+      <div class="login">
+        <form>
+          <!-- <label for="username">Login:</label>
+                <input type="text" name="username" id="username" placeholder="Username">
+                <input type="password" name="password" id="password" placeholder="Password"> -->
+          <a href="index.html"><button type="button">Log out</button></a>
+        </form>
+      </div>
+    </nav>
+  </header>
+
+  <main class="crud">
+    <div class="createForm">
+      <form>
+        <button id="createEventBtn" class="button" type="button">Skapa event</button>
+      </form>
+    </div>
+
+    <table id="createdEventTable">
+      <thead>
+        <tr>
+          <th>Event</th>
+          <th>Datum</th>
+          <th>Kategori</th>
+          <th>Text</th>
+        </tr>
+      </thead>
+      <tbody id="createdEvents">
+
+      </tbody>
+    </table>
+    <!-- Hårdkodad placeholder
+    
+      <tbody>
+        <tr></tr>
+        <td>1</td>
+        <td>Party@Neverland Ranch</td>
+        <td>Festival</td>
+        <td>13-dec-2020</td>
+        <td><button class="button" type="button">Läs</button><button class="button" type="button">Ändra</button><button
+            class="button" type="button">Radera</button></th>
+      </tbody>
+    </table>
+    -->
+
+  </main>
+
+
+  <script src="admin.js"></script>
+  <script src="main.js"></script>
+</body>
+
+</html>
