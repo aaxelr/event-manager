@@ -66,6 +66,7 @@ document.addEventListener("DOMContentLoaded", () => {
     saveEventBtn.addEventListener("click", () => {
       saveEvent(eventNameInput.value, eventDateInput.value, eventCategoryInput.value, eventTextInput.value);
       showCreatedEvent(eventNameInput.value, eventDateInput.value, eventCategoryInput.value, eventTextInput.value);
+      clearInputs();
     });
     
     eventDiv.after(saveEventBtn);
@@ -78,6 +79,7 @@ document.addEventListener("DOMContentLoaded", () => {
     id++;
     console.log("sparar eventformulär");
     localStorage.setItem(`event${addedEvent.id}`, JSON.stringify(addedEvent));
+    
   }
 
   function showCreatedEvent(name, date, category, text) {
@@ -102,6 +104,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     createdEvents.append(eventTr);
   }
+
+  function clearInputs() {
+    eventNameInput.value = "";
+    eventDateInput.value = "";
+    eventCategoryInput.value = "";
+    eventTextInput.value = "";
+  } 
 
   let createEventBtn = document.getElementById("createEventBtn");
   createEventBtn.addEventListener("click", createEvent);
