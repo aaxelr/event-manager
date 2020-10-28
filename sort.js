@@ -1,17 +1,19 @@
 document.addEventListener('DOMContentLoaded', function (e) {
 
     let eventArray = [];
+    let filterArray = [];
     let eventCount = 1;
     let count = 0;
 
-    for (let i = eventCount; i <= localStorage.length; i++) {
-        let event = JSON.parse(window.localStorage.getItem('event' + [i]));;
+    let events = Object.values(localStorage);
+    events.forEach(event => {
+        event = JSON.parse(event);
         eventArray.push(event);
-    }
+    })
 
     for (let i = 0; i < localStorage.length; i++) {
 
-        createEventDiv(eventCount);
+        createEventDiv(eventCount, count);
 
         let h2 = document.getElementById("title" + [eventCount]);
         let p1 = document.getElementById("p-date" + [eventCount]);
@@ -21,18 +23,44 @@ document.addEventListener('DOMContentLoaded', function (e) {
         p1.innerHTML = eventArray[count].date;
         p2.innerHTML = eventArray[count].category;
 
-        console.log(eventCount);
         count++;
         eventCount++;
 
-        console.log(eventArray[0].date);
-    }
+        //console.log(eventArray.date.sort());
 
-    function createEventDiv(eventCount) {
+    }
+    //TEST
+    let wedding = Array.from(document.getElementsByClassName("wedding"));
+    let concert = Array.from(document.getElementsByClassName("concert"));
+    let festival = Array.from(document.getElementsByClassName("festival"));
+    let event = Array.from(document.getElementsByClassName("wedding"));
+    wedding.forEach(weddings => {
+        weddings.classList.add("hidden");
+        console.log(weddings);
+    });
+    //SLUT
+    
+    // ta bort senare efter test
+    let eventBtn = document.getElementById("eventBtn");
+    eventBtn.addEventListener("click", function (e) {
+        for (let i = 1; i <= localStorage.length; i++) {
+            let filter = document.getElementById("div" + [i]);
+            filterArray.push(filter);
+        }
+
+        let filterEventMenu = document.getElementById("mySelect");
+
+        console.log(filterArray[0]);
+
+
+    })
+
+    function createEventDiv(eventCount, count) {
         let createEventDiv = document.getElementById("create-event-bars");
 
         let createDivTag = document.createElement("div");
-        createDivTag.setAttribute("id", "demoClass" + [eventCount]);
+        createDivTag.setAttribute("class", eventArray[count].category);
+        createDivTag.setAttribute("id", "div" + [eventCount]);
         createEventDiv.appendChild(createDivTag);
 
         let createHeaderTag = document.createElement("h2");
@@ -45,8 +73,49 @@ document.addEventListener('DOMContentLoaded', function (e) {
         createDivTag.appendChild(createHeaderTag);
         createDivTag.appendChild(CreatePTag);
         createDivTag.appendChild(createPTag2);
+    }
 
-        console.log("check if it works");
+    function filterEvent(filterArray) {
+
+        let filterEventMenu = document.getElementById("mySelect");
+
+
+        filterEventMenu.addEventListener("change", function (e) {
+
+            let wedding = document.getElementsByClassName("wedding");
+            let festival = document.getElementsByClassName("festival");
+            let concert = document.getElementsByClassName("concert");
+            let event = document.getElementsByClassName("event");
+
+            if (filterEventMenu[0].value) { // all
+                festival.classlist.remove("hidden");
+                concert.classlist.remove("hidden");
+                event.classlist.remove("hidden");
+                wedding.classlist.remove("hidden");
+            }
+            if (filterEventMenu[1].value == eventArray[i].category) { //wedding
+                filterArray[i].class
+            }
+            if (filterEventMenu[2].value == eventArray[i].category) { //festival
+                festival.classlist.remove("hidden");
+                wedding.classlist.add("hidden");
+                concert.classlist.add("hidden");
+                event.classlist.add("hidden");
+            }
+            if (filterEventMenu[3].value == eventArray[i].category) { //concert
+                concert.classlist.remove("hidden");
+                festival.classlist.add("hidden");
+                wedding.classlist.add("hidden");
+                event.classlist.add("hidden");
+            }
+            if (filterEventMenu[4].value) { //Event
+                event.classlist.remove("hidden");
+                festival.classlist.add("hidden");
+                concert.classlist.add("hidden");
+                wedding.classlist.add("hidden");
+            }
+
+        })
     }
 });
 

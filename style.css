@@ -197,7 +197,7 @@ a {
     grid-template-columns: 1fr 1fr;
     gap: 50px;
     width: 90%;
-    margin-top: 100px;
+    margin-top: 50px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -326,3 +326,16 @@ form {
     margin-left: 10px;
 }
 
+.eventBars {
+    overflow: auto;
+    height: 400px;
+}
+form {
+    float: left;
+    margin-top: 50px;
+    margin-left: 100px;
+    color: #ffffff;
+}
+ .hidden {
+     display: none;
+ }
