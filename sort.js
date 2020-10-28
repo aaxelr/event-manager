@@ -3,7 +3,6 @@ document.addEventListener('DOMContentLoaded', function (e) {
     let eventArray = [];
     let eventCount = 1;
     let count = 0;
-    let eventBtn = document.getElementById("eventBtn");
 
     for (let i = eventCount; i <= localStorage.length; i++) {
         let event = JSON.parse(window.localStorage.getItem('event' + [i]));;
