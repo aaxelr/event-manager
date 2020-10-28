@@ -12,50 +12,67 @@ mydate.sort(function(a, b) {
 });
 console.log(mydate);*/
 
-document.addEventListener('DOMContentLoaded', function(e) {
+document.addEventListener('DOMContentLoaded', function (e) {
 
     let eventArray = []
+    let eventCount = 1;
     let eventBtn = document.getElementById("eventBtn");
 
-    eventBtn.addEventListener("click", function(e) {
-
-        let myJSON = '{ "category":"Bröllop", "date":"2020-10-21", "name":"bröllop", "text":"Nu var det dax igen" }';
-        let myObj = JSON.parse(myJSON);
-        document.getElementById("event-category").innerHTML = myObj.category;
-        document.getElementById("event-date").innerHTML = myObj.date;
-        document.getElementById("event-name").innerHTML = myObj.name;
-        document.getElementById("event-text").innerHTML = myObj.text;
-
-
-        function myFunction() {
-            var para = document.createElement("P");
-            para.innerHTML = "This is a paragraph.";
-            document.getElementById("myDIV").appendChild(para);
+    eventBtn.addEventListener("click", function (e) {
+        createEventDiv(eventCount);
+        eventCount++;
+        
+        for (let i = 1; i <= localStorage.length; i++) {
+            let event = JSON.parse(window.localStorage.getItem('event' + [i]));;
+            eventArray.push(event);
         }
+        for (let i = 0; i <= localStorage.length; i++) {
+            console.log(eventArray[i].date);
+        }
+    })
+    function createEventDiv(eventCount) {
+        
+        let createEventDiv = document.getElementById("create-event-bars");
 
-        myFunction();
+        let divTag = document.createElement("div");
+        divTag.setAttribute("id", "demoClass" + [eventCount]);
+        createEventDiv.appendChild(divTag);
 
+        let headerTag = document.createElement("h2");
+        headerTag.setAttribute("id", "header" + [eventCount]);
+        let pTag = document.createElement("p");
+        pTag.setAttribute("id", "paragraf" + [eventCount]);
+        let pTag2 = document.createElement("p");
+        pTag2.setAttribute("id", "paragraf" + [eventCount]);
 
-        // // for (let i = 1; i <= localStorage.length; i++) {
-        // //     let event = JSON.parse(window.localStorage.getItem('event' + [i]));;
-        // //     eventArray.push(event);
-        // // }
-        // // for (let i = 0; i <= localStorage.length; i++) {
-        // //     console.log(eventArray[i].date);
-        // // }
-        // // createEvents();
+        divTag.appendChild(headerTag);
+        divTag.appendChild(pTag);
+        divTag.appendChild(pTag2);
+
+        console.log("check if it works");
+    }
+
+    function fillEventDiv() {
+
+    }
+
+    
+
+});
+ // let myJSON = '{ "category":"Bröllop", "date":"2020-10-21", "name":"bröllop", "text":"Nu var det dax igen" }';
+        // let myObj = JSON.parse(myJSON);
+        // document.getElementById("event-category").innerHTML = myObj.category;
+        // document.getElementById("event-date").innerHTML = myObj.date;
+        // document.getElementById("event-name").innerHTML = myObj.name;
+        // document.getElementById("event-text").innerHTML = myObj.text;
+
         // document.getElementById("result").innerHTML = localStorage.getItem("event2");
 
-
-    })
-
-    // // function createEvents() {
-    // //     for (let i = 1; i <= localStorage.length; i++) {
-    // //         const eventDiv = document.createElement("div");
-    // //         eventDiv.setAttribute("class", info);
-
-    // //     }
-    // // }
+        // function myFunction() {
+    //     var para = document.createElement("p");
+    //     para.innerHTML = "This is a paragraph.";
+    //     document.getElementById("myDIV").appendChild(para);
+    // }
 
     /*let titleArray = [];
     let dateArray = [];
@@ -75,5 +92,3 @@ document.addEventListener('DOMContentLoaded', function(e) {
         console.log(dateArray);
 
     })*/
-
-});
