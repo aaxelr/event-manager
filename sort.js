@@ -10,8 +10,8 @@ document.addEventListener('DOMContentLoaded', function (e) {
         eventArray.push(event);
     }
 
-    eventBtn.addEventListener("click", function (e) {
-        
+    for (let i = 0; i < localStorage.length; i++) {
+
         createEventDiv(eventCount);
 
         let h2 = document.getElementById("title" + [eventCount]);
@@ -25,9 +25,9 @@ document.addEventListener('DOMContentLoaded', function (e) {
         console.log(eventCount);
         count++;
         eventCount++;
-        
+
         console.log(eventArray[0].date);
-    })
+    }
 
     function createEventDiv(eventCount) {
         let createEventDiv = document.getElementById("create-event-bars");
