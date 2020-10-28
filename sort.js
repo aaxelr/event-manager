@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function (e) {
         console.log(eventCount);
         eventCount++;
         
-        //console.log(eventArray[0].date);
+        console.log(eventArray[0].date);
 
 
     })
