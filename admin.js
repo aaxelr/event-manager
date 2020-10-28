@@ -14,6 +14,7 @@ class Event {
 document.addEventListener("DOMContentLoaded", () => {
   let id = 1;
   const createdEvents = document.getElementById("createdEvents");
+  const eventCategoryArray = ["wedding", "festival", "concert", "event"];
 
   const createEvent = () => {
     const eventDiv = document.createElement("div");
@@ -39,15 +40,19 @@ document.addEventListener("DOMContentLoaded", () => {
     eventDateInput.setAttribute("required", "");
 
     const eventCategoryLabel = document.createElement("label");
-    eventCategoryLabel.setAttribute("for", "eventCategoryInput");
+    eventCategoryLabel.setAttribute("for", "eventCategorySelect");
     eventCategoryLabel.innerText = "Kategori";
 
-    const eventCategoryInput = document.createElement("input");
-    eventCategoryInput.setAttribute("id", "eventCategoryInput");
-    eventCategoryInput.setAttribute("name", "eventCategory");
-    eventCategoryInput.setAttribute("type", "text");
-    eventCategoryInput.setAttribute("required", "");
-    //borde bara gå att välja bland våra förvalda kategorier... TODO!
+    const eventCategorySelect = document.createElement("select");
+    eventCategorySelect.setAttribute("id", "eventCategorySelect");
+    eventCategorySelect.setAttribute("name", "eventCategory");
+    eventCategorySelect.setAttribute("required", "");
+    eventCategoryArray.forEach(category => {
+      let option = document.createElement("option");
+      option.setAttribute("value", category);
+      option.innerText = category;
+      eventCategorySelect.append(option);
+    });
 
     const eventTextLabel = document.createElement("label");
     eventTextLabel.setAttribute("for", "eventTextInput");
@@ -59,7 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
     eventTextInput.setAttribute("type", "text");
     eventTextInput.setAttribute("required", "");
 
-    eventDiv.append(eventNameLabel, eventNameInput, eventDateLabel, eventDateInput, eventCategoryLabel, eventCategoryInput, eventTextLabel, eventTextInput);
+    eventDiv.append(eventNameLabel, eventNameInput, eventDateLabel, eventDateInput, eventCategoryLabel, eventCategorySelect, eventTextLabel, eventTextInput);
     createEventBtn.after(eventDiv);
     createEventBtn.setAttribute("disabled", "");
 
@@ -68,8 +73,8 @@ document.addEventListener("DOMContentLoaded", () => {
     saveEventBtn.setAttribute("type", "button");
     saveEventBtn.innerText = "Spara";
     saveEventBtn.addEventListener("click", () => {
-      saveEvent(eventNameInput.value, eventDateInput.value, eventCategoryInput.value, eventTextInput.value);
-      showCreatedEvent(eventNameInput.value, eventDateInput.value, eventCategoryInput.value, eventTextInput.value);
+      saveEvent(eventNameInput.value, eventDateInput.value, eventCategorySelect.value, eventTextInput.value);
+      showCreatedEvent(eventNameInput.value, eventDateInput.value, eventCategorySelect.value, eventTextInput.value);
       clearInputs();
     });
     
@@ -131,6 +136,7 @@ document.addEventListener("DOMContentLoaded", () => {
       editEventName.setAttribute("type", "text");
       createdEventName.append(editEventName);
     }); //skapar nya inputfält vid varje klick...
+    
         //bättre med separat edit-knapp?
     
     eventTr.append(createdEventName, createdEventDate, createdEventCategory, createdEventText, checkboxTd);
@@ -142,7 +148,7 @@ document.addEventListener("DOMContentLoaded", () => {
   function clearInputs() {
     eventNameInput.value = "";
     eventDateInput.value = "";
-    eventCategoryInput.value = "";
+    eventCategorySelect.value = ""; //håll koll här ang categorySelect istf input
     eventTextInput.value = "";
   } 
 
