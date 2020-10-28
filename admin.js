@@ -104,10 +104,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function showCreatedEvent(name, date, category, text) {
     const eventTr = document.createElement("tr");
-    eventTr.classList.add(date, category);
+    eventTr.setAttribute("class", category);
 
     const createdEventName = document.createElement("td");
-    createdEventName.innerText = name;
+    createdEventName.innerHTML = name;
 
     const createdEventDate = document.createElement("td");
     createdEventDate.innerText = date;
@@ -117,13 +117,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const createdEventText = document.createElement("td");
     createdEventText.innerText = text;
-    
-    const checkboxTd = document.createElement("td");
+
+    //delete-del
+    const deleteCheckboxTd = document.createElement("td");
     const deleteCheckbox = document.createElement("input");
     deleteCheckbox.setAttribute("id", `event${id}`);
 
-    //delete-del
-    checkboxTd.append(deleteCheckbox);
+    deleteCheckboxTd.append(deleteCheckbox);
     deleteCheckbox.setAttribute("type", "checkbox");
     deleteCheckbox.addEventListener("click", () => {
       eventTr.remove();
@@ -131,15 +131,44 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     //edit-del TEST
-    createdEventName.addEventListener("click", function() {
+    const editCheckboxTd = document.createElement("td");
+    const editCheckbox = document.createElement("input");
+    editCheckbox.setAttribute("id", `changeEvent${id}`);
+
+    const saveEditedEvent = document.createElement("button");
+    saveEditedEvent.setAttribute("type", "button");
+    //id eller class?
+    saveEditedEvent.addEventListener("click", () => {
+      //SPARA uppdaterad info!
+      //<input type="text" value="födelsedagesfest!"> => <td>födelsedagesfest!</td>
+    })
+
+    editCheckboxTd.append(editCheckbox);
+    editCheckbox.setAttribute("type", "checkbox");
+    editCheckbox.addEventListener("click", () => {
+      createdEventName.innerHTML = `<input type="text" value="${name}">`;
+      createdEventDate.innerHTML = `<input type="date" value="${date}">`;
+      createdEventCategory.innerHTML = `<select></select>`; //HMM... options måste göras dynamiska
+      createdEventText.innerHTML = `<input type="text" value="${text}">`;
+      console.log("hej från edit checkvox");
+      /*
+      byt ut td med innerText till input text/datum/select/text MED innerText
+      dvs.
+      <td>Festival3290834</td> => <input type="text" value="FEstivcal249824">
+      lägg till "spara ändringar"-knapp
+      */
+    });
+    
+    
+    /* createdEventName.addEventListener("click", function() {
       const editEventName = document.createElement("input");
       editEventName.setAttribute("type", "text");
       createdEventName.append(editEventName);
-    }); //skapar nya inputfält vid varje klick...
-    
+    }); */ //skapar nya inputfält vid varje klick...
+
         //bättre med separat edit-knapp?
     
-    eventTr.append(createdEventName, createdEventDate, createdEventCategory, createdEventText, checkboxTd);
+    eventTr.append(createdEventName, createdEventDate, createdEventCategory, createdEventText, deleteCheckboxTd, editCheckboxTd);
     
     createdEvents.append(eventTr);
     id++;
