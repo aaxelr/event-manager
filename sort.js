@@ -2,32 +2,33 @@ document.addEventListener('DOMContentLoaded', function (e) {
 
     let eventArray = [];
     let eventCount = 1;
+    let count = 0;
     let eventBtn = document.getElementById("eventBtn");
 
+    for (let i = eventCount; i <= localStorage.length; i++) {
+        let event = JSON.parse(window.localStorage.getItem('event' + [i]));;
+        eventArray.push(event);
+    }
+
     eventBtn.addEventListener("click", function (e) {
-        for (let i = eventCount; i <= localStorage.length; i++) {
-            let event = JSON.parse(window.localStorage.getItem('event' + [i]));;
-            eventArray.push(event);
-        }
+        
         createEventDiv(eventCount);
 
         let h2 = document.getElementById("title" + [eventCount]);
         let p1 = document.getElementById("p-date" + [eventCount]);
         let p2 = document.getElementById("p-category" + [eventCount]);
 
-        for (let i = 0; i < localStorage.length; i++) {
-            h2.innerHTML = eventArray[i].name;
-            p1.innerHTML = eventArray[i].date;
-            p2.innerHTML = eventArray[i].category;
-        }
+        h2.innerHTML = eventArray[count].name;
+        p1.innerHTML = eventArray[count].date;
+        p2.innerHTML = eventArray[count].category;
 
         console.log(eventCount);
+        count++;
         eventCount++;
         
         console.log(eventArray[0].date);
-
-
     })
+
     function createEventDiv(eventCount) {
         let createEventDiv = document.getElementById("create-event-bars");
 
@@ -48,8 +49,6 @@ document.addEventListener('DOMContentLoaded', function (e) {
 
         console.log("check if it works");
     }
-
-
 });
 
 
