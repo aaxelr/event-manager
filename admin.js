@@ -124,6 +124,14 @@ document.addEventListener("DOMContentLoaded", () => {
       eventTr.remove();
       localStorage.removeItem(deleteCheckbox.id);
     });
+
+    //edit-del TEST
+    createdEventName.addEventListener("click", function() {
+      const editEventName = document.createElement("input");
+      editEventName.setAttribute("type", "text");
+      createdEventName.append(editEventName);
+    }); //skapar nya inputfält vid varje klick...
+        //bättre med separat edit-knapp?
     
     eventTr.append(createdEventName, createdEventDate, createdEventCategory, createdEventText, checkboxTd);
     
