@@ -33,6 +33,10 @@ document.addEventListener('DOMContentLoaded', function (e) {
     let selectMenu = document.getElementById("mySelect");
     selectMenu.addEventListener("change", function (e) {
 
+        for (let i = 0; i < filterArray.length; i++) {
+            filterArray[i].classList.remove("hidden");
+        }
+
         for (let i = 1; i <= localStorage.length; i++) {
             let filter = document.getElementById("div" + [i]);
             filterArray.push(filter);
@@ -42,18 +46,9 @@ document.addEventListener('DOMContentLoaded', function (e) {
             filterArray[i].classList.add("hidden");
         }
         for (let i = 0; i < localStorage.length; i++) {
-            if(filterArray[i].classList.contains("wedding")) {
+            if(filterArray[i].classList.contains(selectMenu.value)) {
                 filterArray[i].classList.remove("hidden");
             }
-            /*if(filterArray[i].classList.contains("festival")) {
-                filterArray[i].classList.remove("hidden");
-            }
-            if(filterArray[i].classList.contains("concert")) {
-                filterArray[i].classList.remove("hidden");
-            }
-            if(filterArray[i].classList.contains("event")) {
-                filterArray[i].classList.remove("hidden");
-            }*/
         }
 
         // filterArray.forEach(category => {
