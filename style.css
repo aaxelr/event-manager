@@ -299,8 +299,9 @@ a {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     height: 550px;
+    overflow-y: scroll;
 }
 
 #crudTable {
@@ -328,8 +329,4 @@ td {
 
 #createEventBtn {
     display: inline;
-}
-
-#createdEventTable {
-
 }

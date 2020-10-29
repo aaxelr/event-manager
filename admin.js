@@ -112,7 +112,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const createdEventDate = document.createElement("td");
     createdEventDate.innerText = date;
 
-    const createdEventCategory = document.createElement("td");
+    let createdEventCategory = document.createElement("td");
     createdEventCategory.innerText = category;
 
     const createdEventText = document.createElement("td");
@@ -148,7 +148,7 @@ document.addEventListener("DOMContentLoaded", () => {
     editCheckbox.addEventListener("click", () => {
       createdEventName.innerHTML = `<input type="text" value="${name}">`;
       createdEventDate.innerHTML = `<input type="date" value="${date}">`;
-      createdEventCategory.innerHTML = `<select></select>`; //HMM... options måste göras dynamiska
+      createdEventCategory = eventCategorySelect;
       createdEventText.innerHTML = `<input type="text" value="${text}">`;
       console.log("hej från edit checkvox");
       /*
