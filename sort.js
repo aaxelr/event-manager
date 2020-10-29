@@ -99,7 +99,7 @@ document.addEventListener('DOMContentLoaded', function(e) {
         let createEventDiv = document.getElementById("create-event-bars");
 
         let createDivTag = document.createElement("div");
-        createDivTag.setAttribute("class", eventArray[count].category);
+        createDivTag.setAttribute("class", `${eventArray[count].date} ${eventArray[count].category}`);
         createDivTag.setAttribute("id", "div" + [eventCount]);
         createEventDiv.appendChild(createDivTag);
 

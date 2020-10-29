@@ -209,7 +209,7 @@ a {
     padding: 10px;
     background-color: #13283bf3;
     color: #d1d1d1;
-    margin: 10px 0;
+    margin-bottom: 10px;
 }
 
 .eventInfo {
@@ -313,6 +313,7 @@ a {
 form {
     float: left;
     margin-top: 200px;
+    margin-bottom: 10px;
     margin-left: 100px;
     color: #ffffff;
 }
