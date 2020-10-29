@@ -297,6 +297,7 @@ a {
     color: #d1d1d1;
     margin: 50px auto;
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
     flex-wrap: wrap;
     height: 550px;
@@ -327,4 +328,8 @@ td {
 
 #createEventBtn {
     display: inline;
+}
+
+#createdEventTable {
+
 }
