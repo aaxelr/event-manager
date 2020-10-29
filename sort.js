@@ -29,31 +29,73 @@ document.addEventListener('DOMContentLoaded', function (e) {
         //console.log(eventArray.date.sort());
 
     }
-    //TEST
-    let wedding = Array.from(document.getElementsByClassName("wedding"));
-    let concert = Array.from(document.getElementsByClassName("concert"));
-    let festival = Array.from(document.getElementsByClassName("festival"));
-    let event = Array.from(document.getElementsByClassName("wedding"));
-    wedding.forEach(weddings => {
-        weddings.classList.add("hidden");
-        console.log(weddings);
-    });
-    //SLUT
-    
-    // ta bort senare efter test
-    let eventBtn = document.getElementById("eventBtn");
-    eventBtn.addEventListener("click", function (e) {
+
+    let selectMenu = document.getElementById("mySelect");
+    selectMenu.addEventListener("change", function (e) {
+
         for (let i = 1; i <= localStorage.length; i++) {
             let filter = document.getElementById("div" + [i]);
             filterArray.push(filter);
         }
 
-        let filterEventMenu = document.getElementById("mySelect");
+        for (let i = 0; i < filterArray.length; i++) {
+            filterArray[i].classList.add("hidden");
+        }
+        for (let i = 0; i < localStorage.length; i++) {
+            if(filterArray[i].classList.contains("wedding")) {
+                filterArray[i].classList.remove("hidden");
+            }
+            /*if(filterArray[i].classList.contains("festival")) {
+                filterArray[i].classList.remove("hidden");
+            }
+            if(filterArray[i].classList.contains("concert")) {
+                filterArray[i].classList.remove("hidden");
+            }
+            if(filterArray[i].classList.contains("event")) {
+                filterArray[i].classList.remove("hidden");
+            }*/
+        }
 
-        console.log(filterArray[0]);
+        // filterArray.forEach(category => {
+        //     category.classList.add("hidden"); 
+        // });
+       
+        
+       /*  if (selectMenu.value == "wedding") {
+            category.classList.remove("hidden")
+        } */
+
+
+        console.log(filterArray);
+        console.log(selectMenu.value);
 
 
     })
+
+    // ta bort senare efter test
+    // let eventBtn = document.getElementById("eventBtn");
+    // eventBtn.addEventListener("click", function (e) {
+    //     for (let i = 1; i <= localStorage.length; i++) {
+    //         let filter = document.getElementById("div" + [i]);
+    //         filterArray.push(filter);
+    //     }
+
+
+    //     console.log(filterArray[2].classList.contains("wedding"));
+    //     console.log(document.getElementById("mySelect"));
+
+    /*for (let i = 0; i < localStorage.length; i++) {
+        if (filterArray[i].classList.contains("wedding") == document.getElementById("mySelect")){
+            console.log("hej");
+        } else {
+            console.log("nej");
+        }
+    }*/
+
+    //console.log(); // compare with array...
+
+
+    //})
 
     function createEventDiv(eventCount, count) {
         let createEventDiv = document.getElementById("create-event-bars");
@@ -80,7 +122,16 @@ document.addEventListener('DOMContentLoaded', function (e) {
         let filterEventMenu = document.getElementById("mySelect");
 
 
-        filterEventMenu.addEventListener("change", function (e) {
+
+    }
+});
+
+
+
+
+
+
+/*filterEventMenu.addEventListener("change", function (e) {
 
             let wedding = document.getElementsByClassName("wedding");
             let festival = document.getElementsByClassName("festival");
@@ -115,11 +166,7 @@ document.addEventListener('DOMContentLoaded', function (e) {
                 wedding.classlist.add("hidden");
             }
 
-        })
-    }
-});
-
-
+        })*/
 
 // let myJSON = '{ "category":"Bröllop", "date":"2020-10-21", "name":"bröllop", "text":"Nu var det dax igen" }';
         // let myObj = JSON.parse(myJSON);
