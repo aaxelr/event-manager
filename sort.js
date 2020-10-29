@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function (e) {
+document.addEventListener('DOMContentLoaded', function(e) {
 
     let eventArray = [];
     let filterArray = [];
@@ -31,34 +31,37 @@ document.addEventListener('DOMContentLoaded', function (e) {
     }
 
     let selectMenu = document.getElementById("mySelect");
-    selectMenu.addEventListener("change", function (e) {
+    selectMenu.addEventListener("change", function(e) {
 
-        for (let i = 0; i < filterArray.length; i++) {
-            filterArray[i].classList.remove("hidden");
-        }
-
-        for (let i = 1; i <= localStorage.length; i++) {
-            let filter = document.getElementById("div" + [i]);
-            filterArray.push(filter);
-        }
-
-        for (let i = 0; i < filterArray.length; i++) {
-            filterArray[i].classList.add("hidden");
-        }
-        for (let i = 0; i < localStorage.length; i++) {
-            if(filterArray[i].classList.contains(selectMenu.value)) {
+        if (selectMenu.value === "default") {
+            for (let i = 0; i < filterArray.length; i++) {
                 filterArray[i].classList.remove("hidden");
+            }
+        } else {
+
+            for (let i = 1; i <= localStorage.length; i++) {
+                let filter = document.getElementById("div" + [i]);
+                filterArray.push(filter);
+            }
+
+            for (let i = 0; i < filterArray.length; i++) {
+                filterArray[i].classList.add("hidden");
+            }
+            for (let i = 0; i < localStorage.length; i++) {
+                if (filterArray[i].classList.contains(selectMenu.value)) {
+                    filterArray[i].classList.remove("hidden");
+                }
             }
         }
 
         // filterArray.forEach(category => {
         //     category.classList.add("hidden"); 
         // });
-       
-        
-       /*  if (selectMenu.value == "wedding") {
-            category.classList.remove("hidden")
-        } */
+
+
+        /*  if (selectMenu.value == "wedding") {
+             category.classList.remove("hidden")
+         } */
 
 
         console.log(filterArray);
@@ -164,19 +167,19 @@ document.addEventListener('DOMContentLoaded', function (e) {
         })*/
 
 // let myJSON = '{ "category":"Bröllop", "date":"2020-10-21", "name":"bröllop", "text":"Nu var det dax igen" }';
-        // let myObj = JSON.parse(myJSON);
-        // document.getElementById("event-category").innerHTML = myObj.category;
-        // document.getElementById("event-date").innerHTML = myObj.date;
-        // document.getElementById("event-name").innerHTML = myObj.name;
-        // document.getElementById("event-text").innerHTML = myObj.text;
+// let myObj = JSON.parse(myJSON);
+// document.getElementById("event-category").innerHTML = myObj.category;
+// document.getElementById("event-date").innerHTML = myObj.date;
+// document.getElementById("event-name").innerHTML = myObj.name;
+// document.getElementById("event-text").innerHTML = myObj.text;
 
-        // document.getElementById("result").innerHTML = localStorage.getItem("event2");
+// document.getElementById("result").innerHTML = localStorage.getItem("event2");
 
-        // function myFunction() {
-    //     var para = document.createElement("p");
-    //     para.innerHTML = "This is a paragraph.";
-    //     document.getElementById("myDIV").appendChild(para);
-    // }
+// function myFunction() {
+//     var para = document.createElement("p");
+//     para.innerHTML = "This is a paragraph.";
+//     document.getElementById("myDIV").appendChild(para);
+// }
 
 /*let titleArray = [];
 let dateArray = [];
