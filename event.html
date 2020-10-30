@@ -32,36 +32,25 @@
             </div>
         </nav>
     </header>
-
-
-    <form>
-        <label for="choseEvenet">Välj ditt event:</label>
-        <select id="eventSelect">
-          <option value="weddings">Bröllop</option>
-          <option value="events">Evenemang</option>
-          <option value="festivals">Festivaler</option>
-          <option value="conserts">Konserter</option>
-        </select>
-
-        <label class="selectDate" for="dateSelect">Välj datum:</label>
-        <input type="date" id="dateSelect" name="dateSelect">
-        <input type="submit">
-
-    </form>
+    <div>
+        <form>
+            <button type="button" id="eventBtn">Sort</button>
+            <select id="mySelect">
+              <option value="default">Visa alla</option>
+              <option value="wedding">Bröllop</option>
+              <option value="festival">Festival</option>
+              <option value="concert">Konsert</option>
+              <option value="event">Event</option>
+            </select>
+            <button type="button" id="sort-event-btn"> Event sort</button>
+            <p id="result"></p>
+        </form>
+    </div>
 
     <main class="eventContent">
 
-        <div class="eventBars">
-            <div>
-                <h2 id="event-title1">Bröllop Sebbe</h2>
-                <p id="event-date1">2020-11-01</p>
-                <p id="event-category1">Bröllop</p>
-            </div>
-            <div>
-                <h2 id="event-title2">Bröllop Mathilde</h2>
-                <p id="event-date2">2020-06-01</p>
-                <p id="event-category2">Bröllop</p>
-            </div>
+        <div class="eventBars" id="create-event-bars">          
+
         </div>
 
         <div class="eventInfo">
@@ -90,6 +79,7 @@
     </footer>
 
     <script src="sort.js"></script>
+    <script src="test.js"></script>
 </body>
 
 </html>
