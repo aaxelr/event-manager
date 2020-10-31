@@ -2,32 +2,40 @@ document.addEventListener('DOMContentLoaded', function(e) {
 
     let eventArray = [];
     let filterArray = [];
-    let eventCount = 1;
-    let count = 0;
 
     let events = Object.values(localStorage);
     events.forEach(event => {
         event = JSON.parse(event);
         eventArray.push(event);
-    })
+    });
 
-    for (let i = 0; i < localStorage.length; i++) {
+    eventArray.sort(compareDiv);
 
-        createEventDiv(eventCount, count);
+    displayEvents();
 
-        let h2 = document.getElementById("title" + [eventCount]);
-        let p1 = document.getElementById("p-date" + [eventCount]);
-        let p2 = document.getElementById("p-category" + [eventCount]);
 
-        h2.innerHTML = eventArray[count].name;
-        p1.innerHTML = eventArray[count].date;
-        p2.innerHTML = eventArray[count].category;
+    function displayEvents() {
+        let eventDiv = document.getElementById("create-event-bars");
+        let eventCount = 1;
+        let count = 0;
+        eventDiv.innerHTML = '';
+        for (let i = 0; i < localStorage.length; i++) {
+            createEventDiv(eventCount, count);
 
-        count++;
-        eventCount++;
+            let h2 = document.getElementById("title" + [eventCount]);
+            let p1 = document.getElementById("p-date" + [eventCount]);
+            let p2 = document.getElementById("p-category" + [eventCount]);
 
-        //console.log(eventArray.date.sort());
+            h2.innerHTML = eventArray[count].name;
+            p1.innerHTML = eventArray[count].date;
+            p2.innerHTML = eventArray[count].category;
 
+            count++;
+            eventCount++;
+
+            //console.log(eventArray.date.sort());
+
+        }
     }
 
     let selectMenu = document.getElementById("mySelect");
@@ -96,12 +104,12 @@ document.addEventListener('DOMContentLoaded', function(e) {
     //})
 
     function createEventDiv(eventCount, count) {
-        let createEventDiv = document.getElementById("create-event-bars");
+        let eventDiv = document.getElementById("create-event-bars");
 
         let createDivTag = document.createElement("div");
         createDivTag.setAttribute("class", `${eventArray[count].date} ${eventArray[count].category}`);
         createDivTag.setAttribute("id", "div" + [eventCount]);
-        createEventDiv.appendChild(createDivTag);
+        eventDiv.appendChild(createDivTag);
 
         let createHeaderTag = document.createElement("h2");
         createHeaderTag.setAttribute("id", "title" + [eventCount]);
@@ -115,13 +123,23 @@ document.addEventListener('DOMContentLoaded', function(e) {
         createDivTag.appendChild(createPTag2);
     }
 
-    function filterEvent(filterArray) {
 
-        let filterEventMenu = document.getElementById("mySelect");
+    let sortBtn = document.getElementById("eventBtn");
+    sortBtn.addEventListener("click", function(e) {
+        console.log("inne i eventBtn")
+        eventArray.reverse();
+        displayEvents();
+
+    });
 
 
-
+    function compareDiv(a, b) {
+        let dateFirst = a.date;
+        let dateSecond = b.date;
+        return dateFirst.localeCompare(dateSecond);
     }
+
+
 });
 
 
