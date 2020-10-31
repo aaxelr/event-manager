@@ -6,12 +6,12 @@ document.addEventListener("DOMContentLoaded", function(event) {
     guestBookBtn.addEventListener("click", function(e) {
 
 
-        nyText = textInput.value;
+        nyText = textInput.value; // input from guestbook in new variable
         let newRow = document.createElement("p");
-        console.log(nyText);
 
-        newRow.append(nyText);
-        guestBookText.append(newRow);
+
+        newRow.append(nyText); // input from guestbook to new row
+        guestBookText.prepend(newRow); // new row on top of guestbook-input
         textInput.value = "";
 
     })

@@ -161,6 +161,10 @@ footer {
     border: 1px solid black;
     box-shadow: 5px 10px 8px black;
     margin: 40px auto auto auto;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
 }
 
 .aboutUs>a {
