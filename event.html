@@ -2,12 +2,12 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Evenemang</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Cabin:wght@400;500;600;700&display=swap');
+        @import url("https://fonts.googleapis.com/css2?family=Cabin:wght@400;500;600;700&display=swap");
     </style>
 </head>
 
@@ -21,55 +21,33 @@
                 <a href="aboutUs.html">Om oss</a>
             </div>
             <div class="picture">
-                <img src="Pictures/Group 1.png" alt="Logga">
+                <img src="Pictures/Group_1.png" alt="Logga" />
             </div>
             <div class="login">
-                <form>
+                <form class="nav">
                     <label for="username">Login:</label>
-                    <input type="text" name="username" id="username" placeholder="Username">
-                    <input type="password" name="password" id="password" placeholder="Password">
-                    <button>Login</button>
+                    <input type="text" name="username" id="username" placeholder="Username" />
+                    <input type="password" name="password" id="password" placeholder="Password" />
+                    <a href="admin.html" class="button">Login</a>
                 </form>
             </div>
         </nav>
     </header>
-
-
+    <div>
+        <form>
+            <button type="button" id="eventBtn" class="button">Sort</button>
+            <select id="mySelect">
+                <option value="default">Visa alla</option>
+                <option value="wedding">Bröllop</option>
+                <option value="festival">Festival</option>
+                <option value="concert">Konsert</option>
+                <option value="event">Event</option>
+            </select>
+        </form>
+    </div>
 
     <main class="eventContent">
-        <div class="eventBars">
-            <div>
-                <h2>Event 1 Lorem blablablablbalbal Event 1 Lorem blablablablbalbalff
-                </h2>
-            </div>
-
-            <div>
-                <h2>Event 2 Lorem blablablablbalbal Event 2 Lorem blablablablbalbal
-                </h2>
-            </div>
-
-            <div>
-                <h2>
-                    Event 3 Lorem blablablablbalbal Event 3 Lorem blablablablbalbal
-                </h2>
-            </div>
-
-            <div>
-                <h2>Event 4 Lorem blablablablbalbal Event 4 Lorem blablablablbalbal
-                </h2>
-            </div>
-
-            <div>
-                <h2>Event 5 Lorem blablablablbalbal Event 4 Lorem blablablablbalbal
-                </h2>
-            </div>
-
-            <div>
-                <h2>Event 6 Lorem blablablablbalbal Event 4 Lorem blablablablbalbal
-
-                </h2>
-            </div>
-        </div>
+        <div class="eventBars" id="create-event-bars"></div>
 
         <div class="eventInfo">
             <a href="detail.html">
@@ -82,23 +60,20 @@
         </div>
     </main>
 
-
-
-
     <footer>
         <div class="picture-socialmedia">
-            <img src="Pictures/Facebook.png" alt="Facebook">
-            <img src="Pictures/Linkedin.png" alt="Linkedin">
-            <img src="Pictures/Instagram.png" alt="Instagram">
-            <img src="Pictures/Twitter.png" alt="Twitter">
+            <img src="Pictures/Facebook.png" alt="Facebook" />
+            <img src="Pictures/Linkedin.png" alt="Linkedin" />
+            <img src="Pictures/Instagram.png" alt="Instagram" />
+            <img src="Pictures/Twitter.png" alt="Twitter" />
         </div>
         <address class="address">
             <a href="mailto:acme@acme.se">Email: acme@acme.se</a>
-            <p> Tel: 010-55 22 33</p>
+            <p>Tel: 010-55 22 33</p>
         </address>
     </footer>
 
-
+    <script src="sort.js"></script>
 </body>
 
 </html>
