@@ -84,7 +84,6 @@ document.addEventListener("DOMContentLoaded", () => {
     saveEventBtn.addEventListener("click", () => {
 
       saveEvent(eventNameInput.value, eventDateInput.value, eventCategorySelect.value, eventTextInput.value);
-      //showCreatedEvent(eventNameInput.value, eventDateInput.value, eventCategorySelect.value, eventTextInput.value); DELETE?
       createdEvents.innerHTML = "";
       showCreatedEvent();
       clearInputs();
@@ -162,15 +161,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
       deleteCheckboxTd.append(deleteCheckbox);
       deleteCheckbox.setAttribute("type", "checkbox");
-      deleteCheckbox.addEventListener("click", () => {
-        eventTr.remove();
-        localStorage.removeItem(deleteCheckbox.id); //ev knas
+      deleteCheckbox.addEventListener("click", function() {
+        this.parentElement.parentElement.remove();
+        localStorage.removeItem(eventArray[i].id); //ev knas
       });
 
-      //edit-del
+     /*  //edit-del
       editCheckboxTd = document.createElement("td");
       editCheckbox = document.createElement("input");
-      editCheckbox.setAttribute("class", `event${eventArray[i].id}`);
+      editCheckbox.setAttribute("class", `event${eventArray[i].id}`); */
 
       eventTr.append(createdEventName, createdEventDate, createdEventCategory, createdEventText, deleteCheckboxTd)
       createdEvents.append(eventTr);
