@@ -2,6 +2,8 @@ document.addEventListener('DOMContentLoaded', function(e) {
 
     let eventArray = [];
     let filterArray = [];
+    // let eventCount = 1;
+    // let count = 0;
 
     let events = Object.values(localStorage);
     events.forEach(event => {
@@ -15,9 +17,9 @@ document.addEventListener('DOMContentLoaded', function(e) {
 
 
     function displayEvents() {
-        let eventDiv = document.getElementById("create-event-bars");
         let eventCount = 1;
         let count = 0;
+        let eventDiv = document.getElementById("create-event-bars");
         eventDiv.innerHTML = '';
         for (let i = 0; i < localStorage.length; i++) {
             createEventDiv(eventCount, count);
@@ -29,7 +31,6 @@ document.addEventListener('DOMContentLoaded', function(e) {
             h2.innerHTML = eventArray[count].name;
             p1.innerHTML = eventArray[count].date;
             p2.innerHTML = eventArray[count].category;
-
             count++;
             eventCount++;
 
