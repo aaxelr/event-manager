@@ -1,110 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Evenemang</title>
     <link rel="stylesheet" href="style.css" />
     <style>
-      @import url("https://fonts.googleapis.com/css2?family=Cabin:wght@400;500;600;700&display=swap");
+        @import url("https://fonts.googleapis.com/css2?family=Cabin:wght@400;500;600;700&display=swap");
     </style>
-  </head>
+</head>
 
-  <body>
+<body>
     <header>
-      <!--Navigation-->
-      <nav class="navigation">
-        <div class="links">
-          <a href="index.html">ACME</a>
-          <a href="event.html">Evenemang</a>
-        </div>
-        <div class="picture">
-          <img src="Pictures/Group 1.png" alt="Logga" />
-        </div>
-        <div class="login">
-          <form>
-            <label for="username">Login:</label>
-            <input
-              type="text"
-              name="username"
-              id="username"
-              placeholder="Username"
-            />
-            <input
-              type="password"
-              name="password"
-              id="password"
-              placeholder="Password"
-            />
-            <a href="admin.html"
-              ><button type="button" class="button">Login</button></a
-            >
-          </form>
-        </div>
-      </nav>
+        <!--Navigation-->
+        <nav class="navigation">
+            <div class="links">
+                <a href="index.html">ACME</a>
+                <a href="event.html">Evenemang</a>
+            </div>
+            <div class="picture">
+                <img src="Pictures/Group 1.png" alt="Logga" />
+            </div>
+            <div class="login">
+                <form class="nav">
+                    <label for="username">Login:</label>
+                    <input type="text" name="username" id="username" placeholder="Username" />
+                    <input type="password" name="password" id="password" placeholder="Password" />
+                    <a href="admin.html" class="button">Login</a>
+                </form>
+            </div>
+        </nav>
     </header>
 
     <div class="eventContent">
-      <div class="eventInfo2" id="guestbookText">
-        <div>
-          <h1>The Weeknd: The After Hours Tour</h1>
-          <br />
-          <ul>
-            <li>Startdatum: FRE 07 OKT. 2021</li>
-            <li>Slutdatum: LÖR 08 OKT. 2021</li>
-            <li>Plats: Ericsson Globe | Stockholm</li>
-            <li>Kategori: Konsert</li>
-            <li>Det finns 200 biljetter kvar</li>
-            <br />
-          </ul>
-          <p>
-            Senast The Weeknd var i Sverige spelade han på ett utsålt Ericsson
-            Globe och i höst är det kanadensiska R&B-undret tillbaka! Med över
-            70 miljoner sålda album och flera miljarder streams på meritlistan
-            är The Weeknd en av vår tids största artister.
-          </p>
-          <br />
-          <button type="button" class="button2">KÖP BILJETTER</button>
+        <div class="eventInfo2" id="guestbookText">
+            <div>
+                <h1>The Weeknd: The After Hours Tour</h1>
+                <ul>
+                    <li>Startdatum: FRE 07 OKT. 2021</li>
+                    <li>Slutdatum: LÖR 08 OKT. 2021</li>
+                    <li>Plats: Ericsson Globe | Stockholm</li>
+                    <li>Kategori: Konsert</li>
+                    <li>Det finns 200 biljetter kvar</li>
+                </ul>
+                <p>
+                    Senast The Weeknd var i Sverige spelade han på ett utsålt Ericsson
+                    Globe och i höst är det kanadensiska R&B-undret tillbaka! Med över
+                    70 miljoner sålda album och flera miljarder streams på meritlistan
+                    är The Weeknd en av vår tids största artister.
+                </p>
+                <br />
+                <button type="button" class="button2">KÖP BILJETTER</button>
+            </div>
+
+            <div>
+                <input type="text" id="textInput" class="inputText" placeholder="Gästbok" />
+                <button type="button" id="guestBookBtn" class="button2">
+                    Skicka
+                </button>
+                <div id="guestBookText"></div>
+            </div>
         </div>
 
-        <div>
-          <input
-            type="text"
-            id="textInput"
-            class="inputText"
-            placeholder="Gästbok"
-          />
-          <button type="button" id="guestBookBtn" class="button2">
-            Skicka
-          </button>
-          <div id="guestBookText"></div>
+        <div class="eventInfo">
+            <img src="Pictures/infopic.jpg" alt="concert"/>
+            <p>
+                Senast The Weeknd var i Sverige spelade han på ett utsålt Ericsson
+                Globe och i höst är det kanadensiska R&B-undret tillbaka! Med över 70
+                miljoner sålda album och flera miljarder streams på meritlistan är The
+                Weeknd en av vår tids största artister.
+            </p>
         </div>
-      </div>
-
-      <div class="eventInfo">
-        <img src="Pictures/infopic.jpg" />
-        <p>
-          Senast The Weeknd var i Sverige spelade han på ett utsålt Ericsson
-          Globe och i höst är det kanadensiska R&B-undret tillbaka! Med över 70
-          miljoner sålda album och flera miljarder streams på meritlistan är The
-          Weeknd en av vår tids största artister.
-        </p>
-      </div>
     </div>
 
     <footer>
-      <div class="picture-socialmedia">
-        <img src="Pictures/Facebook.png" alt="Facebook" />
-        <img src="Pictures/Linkedin.png" alt="Linkedin" />
-        <img src="Pictures/Instagram.png" alt="Instagram" />
-        <img src="Pictures/Twitter.png" alt="Twitter" />
-      </div>
-      <address class="address">
-        <a href="mailto:acme@acme.se">Email: acme@acme.se</a>
-        <p>Tel: 010-55 22 33</p>
-      </address>
+        <div class="picture-socialmedia">
+            <img src="Pictures/Facebook.png" alt="Facebook" />
+            <img src="Pictures/Linkedin.png" alt="Linkedin" />
+            <img src="Pictures/Instagram.png" alt="Instagram" />
+            <img src="Pictures/Twitter.png" alt="Twitter" />
+        </div>
+        <address class="address">
+            <a href="mailto:acme@acme.se">Email: acme@acme.se</a>
+            <p>Tel: 010-55 22 33</p>
+        </address>
     </footer>
 
     <script src="detail.js"></script>
-  </body>
+</body>
+
 </html>
