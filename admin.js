@@ -19,7 +19,6 @@ class Manager {
 //DOMContentLoaded
 document.addEventListener("DOMContentLoaded", () => {
   const createdEvents = document.getElementById("createdEvents");
-  console.log(localStorage);
   showCreatedEvent();
   const eventCategoryArray = ["wedding", "festival", "concert", "event"];
 
@@ -133,7 +132,6 @@ document.addEventListener("DOMContentLoaded", () => {
       eventArray.push(event);
     });
 
-    console.log(eventArray);
     let createdEventName, createdEventDate, createdEventCategory, createdEventText, eventTr;
     let deleteCheckboxTd, deleteCheckbox;
     let editCheckboxTd, editCheckbox;
@@ -149,7 +147,7 @@ document.addEventListener("DOMContentLoaded", () => {
       createdEventDate = document.createElement("td");
       createdEventDate.innerText = eventArray[i].date;
       createdEventDate.setAttribute("class", `event${eventArray[i].id}`)
-      
+
       createdEventCategory = document.createElement("td");
       createdEventCategory.innerText = eventArray[i].category;
       createdEventCategory.setAttribute("class", `event${eventArray[i].id}`)
@@ -187,28 +185,32 @@ document.addEventListener("DOMContentLoaded", () => {
         //skapar nya inputfält
         let editNameInput = document.createElement("input");
         editNameInput.setAttribute("type", "text");
+        editNameInput.setAttribute("id", `editName${eventArray[i].id}`);
         editNameInput.value = eventArray[i].name;
         tds[0].append(editNameInput);
 
         let editDateInput = document.createElement("input");
         editDateInput.setAttribute("type", "date");
+        editDateInput.setAttribute("id", `editDate${eventArray[i].id}`);
         editDateInput.value = eventArray[i].date;
         tds[1].append(editDateInput);
 
         //ev välja det som var valt när eventet skapades...
         let editCategorySelect = document.createElement("select");
+        editCategorySelect.setAttribute("id", `editCategory${eventArray[i].id}`);
         eventCategoryArray.forEach(category => {
           let option = document.createElement("option");
           option.setAttribute("value", category);
           option.innerText = category;
           editCategorySelect.append(option);
-          
+
 
         });
         tds[2].append(editCategorySelect);
 
         let editTextInput = document.createElement("input");
         editTextInput.setAttribute("type", "text");
+        editTextInput.setAttribute("id", `editText${eventArray[i].id}`);
         editTextInput.value = eventArray[i].text;
         tds[3].append(editTextInput);
 
@@ -220,10 +222,18 @@ document.addEventListener("DOMContentLoaded", () => {
       saveEditedEventBtn.innerText = "Spara";
       editCheckboxTd.append(saveEditedEventBtn);
       saveEditedEventBtn.addEventListener("click", function () {
-        let editedEvent = new Event(eventArray[i].id, eventArray[i].name, eventArray[i].date, eventArray[i].category, eventArray[i].text);
+        let editedName = document.getElementById(`editName${eventArray[i].id}`)
+        let editedDate = document.getElementById(`editDate${eventArray[i].id}`)
+        let editedCategory = document.getElementById(`editCategory${eventArray[i].id}`)
+        let editedText = document.getElementById(`editText${eventArray[i].id}`)
+
+        let editedEvent = new Event(eventArray[i].id, editedName.value, editedDate.value, editedCategory.value, editedText.value);
         console.log("uppdaterar eventformulär");
+        console.log(editedEvent);
         localStorage.setItem(eventArray[i].id, JSON.stringify(editedEvent));
 
+        createdEvents.innerHTML = "";
+        showCreatedEvent();
 
       });
 
