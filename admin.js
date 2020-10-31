@@ -143,46 +143,100 @@ document.addEventListener("DOMContentLoaded", () => {
       eventTr.setAttribute("class", eventArray[i].category);
 
       createdEventName = document.createElement("td");
-      createdEventName.innerHTML = eventArray[i].name;
+      createdEventName.innerText = eventArray[i].name;
+      createdEventName.setAttribute("class", `event${eventArray[i].id}`)
 
       createdEventDate = document.createElement("td");
       createdEventDate.innerText = eventArray[i].date;
-
+      createdEventDate.setAttribute("class", `event${eventArray[i].id}`)
+      
       createdEventCategory = document.createElement("td");
       createdEventCategory.innerText = eventArray[i].category;
+      createdEventCategory.setAttribute("class", `event${eventArray[i].id}`)
 
       createdEventText = document.createElement("td");
       createdEventText.innerText = eventArray[i].text;
+      createdEventText.setAttribute("class", `event${eventArray[i].id}`)
 
-      //delete-del
+      //delete part
       deleteCheckboxTd = document.createElement("td");
+
       deleteCheckbox = document.createElement("input");
       deleteCheckbox.setAttribute("id", eventArray[i].id);
-
-      deleteCheckboxTd.append(deleteCheckbox);
       deleteCheckbox.setAttribute("type", "checkbox");
-      deleteCheckbox.addEventListener("click", function() {
+      deleteCheckbox.addEventListener("click", function () {
         this.parentElement.parentElement.remove();
-        localStorage.removeItem(eventArray[i].id); //ev knas
+        localStorage.removeItem(eventArray[i].id);
       });
 
-     /*  //edit-del
+      deleteCheckboxTd.append(deleteCheckbox);
+
+      //edit part
       editCheckboxTd = document.createElement("td");
+
       editCheckbox = document.createElement("input");
-      editCheckbox.setAttribute("class", `event${eventArray[i].id}`); */
+      editCheckbox.setAttribute("class", eventArray[i].id);
+      editCheckbox.setAttribute("type", "checkbox");
+      editCheckbox.addEventListener("click", function () {
+        let tds = document.getElementsByClassName(`event${eventArray[i].id}`);
+        console.log(tds);
+        for (let td of tds) {
+          td.innerHTML = "";
+        }
 
-      eventTr.append(createdEventName, createdEventDate, createdEventCategory, createdEventText, deleteCheckboxTd)
+        //skapar nya inputfält
+        let editNameInput = document.createElement("input");
+        editNameInput.setAttribute("type", "text");
+        editNameInput.value = eventArray[i].name;
+        tds[0].append(editNameInput);
+
+        let editDateInput = document.createElement("input");
+        editDateInput.setAttribute("type", "date");
+        editDateInput.value = eventArray[i].date;
+        tds[1].append(editDateInput);
+
+        //ev välja det som var valt när eventet skapades...
+        let editCategorySelect = document.createElement("select");
+        eventCategoryArray.forEach(category => {
+          let option = document.createElement("option");
+          option.setAttribute("value", category);
+          option.innerText = category;
+          editCategorySelect.append(option);
+          
+
+        });
+        tds[2].append(editCategorySelect);
+
+        let editTextInput = document.createElement("input");
+        editTextInput.setAttribute("type", "text");
+        editTextInput.value = eventArray[i].text;
+        tds[3].append(editTextInput);
+
+        console.log("hej från edit");
+      });
+
+      const saveEditedEventBtn = document.createElement("button");
+      saveEditedEventBtn.setAttribute("type", "button");
+      saveEditedEventBtn.innerText = "Spara";
+      editCheckboxTd.append(saveEditedEventBtn);
+      saveEditedEventBtn.addEventListener("click", function () {
+        let editedEvent = new Event(eventArray[i].id, eventArray[i].name, eventArray[i].date, eventArray[i].category, eventArray[i].text);
+        console.log("uppdaterar eventformulär");
+        localStorage.setItem(eventArray[i].id, JSON.stringify(editedEvent));
+
+
+      });
+
+      editCheckboxTd.append(editCheckbox);
+
+      eventTr.append(createdEventName, createdEventDate, createdEventCategory, createdEventText, deleteCheckboxTd, editCheckboxTd);
+
       createdEvents.append(eventTr);
-
 
     };
 
     /*
-        //edit-del TEST
-        const editCheckboxTd = document.createElement("td");
-        const editCheckbox = document.createElement("input");
-        editCheckbox.setAttribute("class", `event${id}`);
-
+        
         const saveEditedEvent = document.createElement("button");
         saveEditedEvent.setAttribute("type", "button");
         //id eller class?
