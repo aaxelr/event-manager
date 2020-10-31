@@ -11,11 +11,19 @@ class Event {
 
 }
 
+//lägga till en Manager-class ?
+class Manager {
+
+}
+
+//DOMContentLoaded
 document.addEventListener("DOMContentLoaded", () => {
-  let id = 1; //hmmm ID blir knasigt
   const createdEvents = document.getElementById("createdEvents");
+  console.log(localStorage);
+  showCreatedEvent();
   const eventCategoryArray = ["wedding", "festival", "concert", "event"];
 
+  //creates labels and inputs for all fields
   const createEvent = () => {
     const eventDiv = document.createElement("div");
 
@@ -68,13 +76,17 @@ document.addEventListener("DOMContentLoaded", () => {
     createEventBtn.after(eventDiv);
     createEventBtn.setAttribute("disabled", "");
 
+
     const saveEventBtn = document.createElement("button");
     saveEventBtn.setAttribute("id", "saveEventBtn");
     saveEventBtn.setAttribute("type", "button");
     saveEventBtn.innerText = "Spara";
     saveEventBtn.addEventListener("click", () => {
-      saveEvent(id, eventNameInput.value, eventDateInput.value, eventCategorySelect.value, eventTextInput.value);
-      showCreatedEvent(eventNameInput.value, eventDateInput.value, eventCategorySelect.value, eventTextInput.value);
+
+      saveEvent(eventNameInput.value, eventDateInput.value, eventCategorySelect.value, eventTextInput.value);
+      //showCreatedEvent(eventNameInput.value, eventDateInput.value, eventCategorySelect.value, eventTextInput.value); DELETE?
+      createdEvents.innerHTML = "";
+      showCreatedEvent();
       clearInputs();
     });
 
@@ -96,86 +108,121 @@ document.addEventListener("DOMContentLoaded", () => {
 
   }
 
-  function saveEvent(id, name, date, category, text) {
+  function saveEvent(name, date, category, text) {
+    let id;
+    let eventKeys = Object.keys(localStorage);
+    if (eventKeys == "") {
+      id = 1;
+    } else {
+      id = Math.max(...eventKeys) + 1;
+    }
+
     let addedEvent = new Event(id, name, date, category, text);
     console.log("sparar eventformulär");
-    localStorage.setItem(`event${addedEvent.id}`, JSON.stringify(addedEvent));
+    localStorage.setItem(addedEvent.id, JSON.stringify(addedEvent));
+
   }
 
-  function showCreatedEvent(name, date, category, text) {
-    const eventTr = document.createElement("tr");
-    eventTr.setAttribute("class", category);
+  //function showCreatedEvent(name, date, category, text) {
+  function showCreatedEvent() {
 
-    const createdEventName = document.createElement("td");
-    createdEventName.innerHTML = name;
+    let eventArray = [];
 
-    const createdEventDate = document.createElement("td");
-    createdEventDate.innerText = date;
-
-    let createdEventCategory = document.createElement("td");
-    createdEventCategory.innerText = category;
-
-    const createdEventText = document.createElement("td");
-    createdEventText.innerText = text;
-
-    //delete-del
-    const deleteCheckboxTd = document.createElement("td");
-    const deleteCheckbox = document.createElement("input");
-    deleteCheckbox.setAttribute("id", `event${id}`);
-
-    deleteCheckboxTd.append(deleteCheckbox);
-    deleteCheckbox.setAttribute("type", "checkbox");
-    deleteCheckbox.addEventListener("click", () => {
-      eventTr.remove();
-      localStorage.removeItem(deleteCheckbox.id);
+    let events = Object.values(localStorage);
+    events.forEach(event => {
+      event = JSON.parse(event);
+      eventArray.push(event);
     });
 
-    //edit-del TEST
-    const editCheckboxTd = document.createElement("td");
-    const editCheckbox = document.createElement("input");
-    editCheckbox.setAttribute("class", `event${id}`);
+    console.log(eventArray);
+    let createdEventName, createdEventDate, createdEventCategory, createdEventText, eventTr;
+    let deleteCheckboxTd, deleteCheckbox;
+    let editCheckboxTd, editCheckbox;
 
-    const saveEditedEvent = document.createElement("button");
-    saveEditedEvent.setAttribute("type", "button");
-    //id eller class?
-    saveEditedEvent.addEventListener("click", () => {
-      //SPARA uppdaterad info!
-      //<input type="text" value="födelsedagesfest!"> => <td>födelsedagesfest!</td>
-    })
+    for (let i = 0; i < eventArray.length; i++) {
+      eventTr = document.createElement("tr");
+      eventTr.setAttribute("class", eventArray[i].category);
 
-    editCheckboxTd.append(editCheckbox);
-    editCheckbox.setAttribute("type", "checkbox");
-    editCheckbox.addEventListener("click", function () {
-      editCheckbox.disabled = true;
-      console.log(localStorage.removeItem(this.className));
-      //vi vill hitta det eventet i localStorage som har samma värde som this.className
+      createdEventName = document.createElement("td");
+      createdEventName.innerHTML = eventArray[i].name;
 
-      createdEventName.innerHTML = `<input id="updatedName" type="text" value="${name}">`;
-      createdEventDate.innerHTML = `<input id="updatedDate" type="date" value="${date}">`;
-      createdEventCategory.innerHTML = `<select id="updatedCategory"><option value="wedding">wedding</option><option value="festival">festival</option><option value="concert">concert</option><option value="event">event</option></select>`;
-      createdEventText.innerHTML = `<input id="updatedText" type="text" value="${text}">`;
-      
-      const saveEditedEventBtn = document.createElement("button");
-      saveEditedEventBtn.setAttribute("type", "button");
-      saveEditedEventBtn.innerText = "Spara";
-      editCheckboxTd.append(saveEditedEventBtn);
-      let updatedName = document.getElementById("updatedName");
-      let updatedDate = document.getElementById("updatedDate");
-      let updatedCategory = document.getElementById("updatedCategory");
-      let updatedText = document.getElementById("updatedText");
-      
-      saveEditedEventBtn.addEventListener("click", function() {
-        //id++; //KAOS
-        saveEvent(id, updatedName.value, updatedDate.value, updatedCategory.value, updatedText.value);
-      })
-      
-    });
+      createdEventDate = document.createElement("td");
+      createdEventDate.innerText = eventArray[i].date;
+
+      createdEventCategory = document.createElement("td");
+      createdEventCategory.innerText = eventArray[i].category;
+
+      createdEventText = document.createElement("td");
+      createdEventText.innerText = eventArray[i].text;
+
+      //delete-del
+      deleteCheckboxTd = document.createElement("td");
+      deleteCheckbox = document.createElement("input");
+      deleteCheckbox.setAttribute("id", eventArray[i].id);
+
+      deleteCheckboxTd.append(deleteCheckbox);
+      deleteCheckbox.setAttribute("type", "checkbox");
+      deleteCheckbox.addEventListener("click", () => {
+        eventTr.remove();
+        localStorage.removeItem(deleteCheckbox.id); //ev knas
+      });
+
+      //edit-del
+      editCheckboxTd = document.createElement("td");
+      editCheckbox = document.createElement("input");
+      editCheckbox.setAttribute("class", `event${eventArray[i].id}`);
+
+      eventTr.append(createdEventName, createdEventDate, createdEventCategory, createdEventText, deleteCheckboxTd)
+      createdEvents.append(eventTr);
 
 
-    eventTr.append(createdEventName, createdEventDate, createdEventCategory, createdEventText, deleteCheckboxTd, editCheckboxTd);
+    };
 
-    createdEvents.append(eventTr);
-    id++; //ev. KAOS
+    /*
+        //edit-del TEST
+        const editCheckboxTd = document.createElement("td");
+        const editCheckbox = document.createElement("input");
+        editCheckbox.setAttribute("class", `event${id}`);
+
+        const saveEditedEvent = document.createElement("button");
+        saveEditedEvent.setAttribute("type", "button");
+        //id eller class?
+        saveEditedEvent.addEventListener("click", () => {
+          //SPARA uppdaterad info!
+          //<input type="text" value="födelsedagesfest!"> => <td>födelsedagesfest!</td>
+        })
+
+        editCheckboxTd.append(editCheckbox);
+        editCheckbox.setAttribute("type", "checkbox");
+        editCheckbox.addEventListener("click", function () {
+          editCheckbox.disabled = true;
+          console.log(localStorage.removeItem(this.className));
+          //vi vill hitta det eventet i localStorage som har samma värde som this.className
+
+          createdEventName.innerHTML = `<input id="updatedName" type="text" value="${name}">`;
+          createdEventDate.innerHTML = `<input id="updatedDate" type="date" value="${date}">`;
+          createdEventCategory.innerHTML = `<select id="updatedCategory"><option value="wedding">wedding</option><option value="festival">festival</option><option value="concert">concert</option><option value="event">event</option></select>`;
+          createdEventText.innerHTML = `<input id="updatedText" type="text" value="${text}">`;
+
+          const saveEditedEventBtn = document.createElement("button");
+          saveEditedEventBtn.setAttribute("type", "button");
+          saveEditedEventBtn.innerText = "Spara";
+          editCheckboxTd.append(saveEditedEventBtn);
+          let updatedName = document.getElementById("updatedName");
+          let updatedDate = document.getElementById("updatedDate");
+          let updatedCategory = document.getElementById("updatedCategory");
+          let updatedText = document.getElementById("updatedText");
+
+          saveEditedEventBtn.addEventListener("click", function () {
+            //id++; //KAOS
+            saveEvent(id, updatedName.value, updatedDate.value, updatedCategory.value, updatedText.value);
+          })
+
+        }); */
+
+
+    /* eventTr.append(createdEventName, createdEventDate, createdEventCategory, createdEventText, deleteCheckboxTd, editCheckboxTd );*/
+
   }
 
   function clearInputs() {
