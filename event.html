@@ -1,85 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Evenemang</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Cabin:wght@400;500;600;700&display=swap');
+      @import url("https://fonts.googleapis.com/css2?family=Cabin:wght@400;500;600;700&display=swap");
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
     <header>
-        <!--Navigation-->
-        <nav class="navigation">
-            <div class="links">
-                <a href="index.html">ACME</a>
-                <a href="event.html">Evenemang</a>
-            </div>
-            <div class="picture">
-                <img src="Pictures/Group 1.png" alt="Logga">
-            </div>
-            <div class="login">
-                <form>
-                    <label for="username">Login:</label>
-                    <input type="text" name="username" id="username" placeholder="Username">
-                    <input type="password" name="password" id="password" placeholder="Password">
-                    <a href="admin.html"><button type="button">Login</button></a>
-                </form>
-            </div>
-        </nav>
+      <!--Navigation-->
+      <nav class="navigation">
+        <div class="links">
+          <a href="index.html">ACME</a>
+          <a href="event.html">Evenemang</a>
+        </div>
+        <div class="picture">
+          <img src="Pictures/Group 1.png" alt="Logga" />
+        </div>
+        <div class="login">
+          <form>
+            <label for="username">Login:</label>
+            <input
+              type="text"
+              name="username"
+              id="username"
+              placeholder="Username"
+            />
+            <input
+              type="password"
+              name="password"
+              id="password"
+              placeholder="Password"
+            />
+            <a href="admin.html"
+              ><button type="button" class="button">Login</button></a
+            >
+          </form>
+        </div>
+      </nav>
     </header>
     <div>
-        <form>
-            <button type="button" id="eventBtn">Sort</button>
-            <select id="mySelect">
-              <option value="default">Visa alla</option>
-              <option value="wedding">Bröllop</option>
-              <option value="festival">Festival</option>
-              <option value="concert">Konsert</option>
-              <option value="event">Event</option>
-            </select>
-            <button type="button" id="sort-event-btn"> Event sort</button>
-            <p id="result"></p>
-        </form>
+      <form>
+        <button type="button" id="eventBtn" class="button">Sort</button>
+        <select id="mySelect">
+          <option value="default">Visa alla</option>
+          <option value="wedding">Bröllop</option>
+          <option value="festival">Festival</option>
+          <option value="concert">Konsert</option>
+          <option value="event">Event</option>
+        </select>
+      </form>
     </div>
 
     <main class="eventContent">
+      <div class="eventBars" id="create-event-bars"></div>
 
-        <div class="eventBars" id="create-event-bars">
-
-        </div>
-
-        <div class="eventInfo">
-            <a href="detail.html">
-                <img src="Pictures/infopic.jpg">
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Distinctio ad aliquam cum beatae minima qui a aperiam odio est recusandae reprehenderit eius reiciendis voluptatibus eligendi numquam omnis fugiat, molestias alias.</p>
-            </a>
-        </div>
-
+      <div class="eventInfo">
+        <a href="detail.html">
+          <img src="Pictures/infopic.jpg" />
+        </a>
+      </div>
     </main>
 
-
-
-
     <footer>
-        <div class="picture-socialmedia">
-            <img src="Pictures/Facebook.png" alt="Facebook">
-            <img src="Pictures/Linkedin.png" alt="Linkedin">
-            <img src="Pictures/Instagram.png" alt="Instagram">
-            <img src="Pictures/Twitter.png" alt="Twitter">
-        </div>
-        <address class="address">
-            <a href="mailto:acme@acme.se">Email: acme@acme.se</a>
-            <p> Tel: 010-55 22 33</p>
-        </address>
+      <div class="picture-socialmedia">
+        <img src="Pictures/Facebook.png" alt="Facebook" />
+        <img src="Pictures/Linkedin.png" alt="Linkedin" />
+        <img src="Pictures/Instagram.png" alt="Instagram" />
+        <img src="Pictures/Twitter.png" alt="Twitter" />
+      </div>
+      <address class="address">
+        <a href="mailto:acme@acme.se">Email: acme@acme.se</a>
+        <p>Tel: 010-55 22 33</p>
+      </address>
     </footer>
 
     <script src="sort.js"></script>
-    <script src="test.js"></script>
-</body>
-
+  </body>
 </html>

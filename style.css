@@ -293,12 +293,14 @@ a {
 #crudTable,
 th,
 td {
-    border: 2px solid #FFBC7D;
+    border: 2px solid #ffbc7d;
     border-collapse: collapse;
     padding: 10px 20px;
 }
 
 .button {
+    background-color: #13283bf3;
+    color: #ffffff;
     border-radius: 5px;
     font-weight: bold;
     margin: 5px;
@@ -306,7 +308,7 @@ td {
 }
 
 .button:hover {
-    color: #FFBC7D;
+    color: #ffbc7d;
 }
 
 #createEventBtn {
@@ -353,7 +355,7 @@ form {
 #crudTable,
 th,
 td {
-    border: 2px solid #FFBC7D;
+    border: 2px solid #ffbc7d;
     border-collapse: collapse;
     padding: 10px 20px;
 }
@@ -366,7 +368,7 @@ td {
 }
 
 .button:hover {
-    color: #FFBC7D;
+    color: #ffbc7d;
 }
 
 #createEventBtn {
