@@ -11,18 +11,16 @@ class Event {
 
 }
 
-//lägga till en Manager-class ?
-class Manager {
-
-}
-
 //DOMContentLoaded
+//Grabs the tbody-element to which all events are appended.
+//Shows created events (if any).
+//Defines our categories (future changes like adding, removing, renaming categories could be done).
 document.addEventListener("DOMContentLoaded", () => {
   const createdEvents = document.getElementById("createdEvents");
   showCreatedEvent();
   const eventCategoryArray = ["wedding", "festival", "concert", "event"];
 
-  //creates labels and inputs for all fields
+  //Creates labels and inputs for all fields
   const createEvent = () => {
     const eventDiv = document.createElement("div");
 
@@ -71,11 +69,12 @@ document.addEventListener("DOMContentLoaded", () => {
     eventTextInput.setAttribute("type", "text");
     eventTextInput.setAttribute("required", "");
 
+    //Appends created elements and disables createEventBtn.
     eventDiv.append(eventNameLabel, eventNameInput, eventDateLabel, eventDateInput, eventCategoryLabel, eventCategorySelect, eventTextLabel, eventTextInput);
     createEventBtn.after(eventDiv);
     createEventBtn.setAttribute("disabled", "");
 
-
+    //Save button
     const saveEventBtn = document.createElement("button");
     saveEventBtn.setAttribute("id", "saveEventBtn");
     saveEventBtn.setAttribute("type", "button");
@@ -89,8 +88,8 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     eventDiv.after(saveEventBtn);
-    console.log("skapar eventformulär");
 
+    //Done button
     const doneBtn = document.createElement("button");
     doneBtn.setAttribute("id", "doneBtn");
     doneBtn.setAttribute("type", "button");
@@ -106,6 +105,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   }
 
+  //Creates id based on the highest id already in localStorage.
+  //Grabs values from inputs and creates new instance of Event.
+  //Saves created event to localStorage as a JSON object.
   function saveEvent(name, date, category, text) {
     let id;
     let eventKeys = Object.keys(localStorage);
@@ -116,12 +118,15 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     let addedEvent = new Event(id, name, date, category, text);
-    console.log("sparar eventformulär");
     localStorage.setItem(addedEvent.id, JSON.stringify(addedEvent));
 
   }
 
-  //function showCreatedEvent(name, date, category, text) {
+  //Grabs data from localStorage and parses it.
+  //Iterates over events in localStorage.
+  //Puts the event in a table row and puts every value in its designated table cell.
+  //Adds a delete checkbox to the event row.
+  //Adds a edit checkbox and save button to the event row.
   function showCreatedEvent() {
 
     let eventArray = [];
@@ -156,9 +161,8 @@ document.addEventListener("DOMContentLoaded", () => {
       createdEventText.innerText = eventArray[i].text;
       createdEventText.setAttribute("class", `event${eventArray[i].id}`)
 
-      //delete part
+      //Delete part
       deleteCheckboxTd = document.createElement("td");
-
       deleteCheckbox = document.createElement("input");
       deleteCheckbox.setAttribute("id", eventArray[i].id);
       deleteCheckbox.setAttribute("type", "checkbox");
@@ -169,7 +173,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
       deleteCheckboxTd.append(deleteCheckbox);
 
-      //edit part
+      //Edit part
+      //(Edit function should probably be a named function instead of an anonymous function.)
+      //Removes contents from event table data cells.
+      //Creates new input/select elements, appends thema and fills them with event info. 
       editCheckboxTd = document.createElement("td");
 
       editCheckbox = document.createElement("input");
@@ -177,12 +184,10 @@ document.addEventListener("DOMContentLoaded", () => {
       editCheckbox.setAttribute("type", "checkbox");
       editCheckbox.addEventListener("click", function () {
         let tds = document.getElementsByClassName(`event${eventArray[i].id}`);
-        console.log(tds);
         for (let td of tds) {
           td.innerHTML = "";
         }
 
-        //skapar nya inputfält
         let editNameInput = document.createElement("input");
         editNameInput.setAttribute("type", "text");
         editNameInput.setAttribute("id", `editName${eventArray[i].id}`);
@@ -195,7 +200,6 @@ document.addEventListener("DOMContentLoaded", () => {
         editDateInput.value = eventArray[i].date;
         tds[1].append(editDateInput);
 
-        //ev välja det som var valt när eventet skapades...
         let editCategorySelect = document.createElement("select");
         editCategorySelect.setAttribute("id", `editCategory${eventArray[i].id}`);
         eventCategoryArray.forEach(category => {
@@ -203,9 +207,8 @@ document.addEventListener("DOMContentLoaded", () => {
           option.setAttribute("value", category);
           option.innerText = category;
           editCategorySelect.append(option);
-
-
         });
+
         tds[2].append(editCategorySelect);
 
         let editTextInput = document.createElement("input");
@@ -213,10 +216,11 @@ document.addEventListener("DOMContentLoaded", () => {
         editTextInput.setAttribute("id", `editText${eventArray[i].id}`);
         editTextInput.value = eventArray[i].text;
         tds[3].append(editTextInput);
-
-        console.log("hej från edit");
       });
 
+      //Save edited button
+      //Saves edited event to localStorage.
+      //Empties the tbody-element and then shows the events in localStorage.
       const saveEditedEventBtn = document.createElement("button");
       saveEditedEventBtn.setAttribute("type", "button");
       saveEditedEventBtn.innerText = "Spara";
@@ -228,8 +232,7 @@ document.addEventListener("DOMContentLoaded", () => {
         let editedText = document.getElementById(`editText${eventArray[i].id}`)
 
         let editedEvent = new Event(eventArray[i].id, editedName.value, editedDate.value, editedCategory.value, editedText.value);
-        console.log("uppdaterar eventformulär");
-        console.log(editedEvent);
+
         localStorage.setItem(eventArray[i].id, JSON.stringify(editedEvent));
 
         createdEvents.innerHTML = "";
@@ -238,60 +241,16 @@ document.addEventListener("DOMContentLoaded", () => {
       });
 
       editCheckboxTd.append(editCheckbox);
-
       eventTr.append(createdEventName, createdEventDate, createdEventCategory, createdEventText, deleteCheckboxTd, editCheckboxTd);
-
       createdEvents.append(eventTr);
 
     };
-
-    /*
-        
-        const saveEditedEvent = document.createElement("button");
-        saveEditedEvent.setAttribute("type", "button");
-        //id eller class?
-        saveEditedEvent.addEventListener("click", () => {
-          //SPARA uppdaterad info!
-          //<input type="text" value="födelsedagesfest!"> => <td>födelsedagesfest!</td>
-        })
-
-        editCheckboxTd.append(editCheckbox);
-        editCheckbox.setAttribute("type", "checkbox");
-        editCheckbox.addEventListener("click", function () {
-          editCheckbox.disabled = true;
-          console.log(localStorage.removeItem(this.className));
-          //vi vill hitta det eventet i localStorage som har samma värde som this.className
-
-          createdEventName.innerHTML = `<input id="updatedName" type="text" value="${name}">`;
-          createdEventDate.innerHTML = `<input id="updatedDate" type="date" value="${date}">`;
-          createdEventCategory.innerHTML = `<select id="updatedCategory"><option value="wedding">wedding</option><option value="festival">festival</option><option value="concert">concert</option><option value="event">event</option></select>`;
-          createdEventText.innerHTML = `<input id="updatedText" type="text" value="${text}">`;
-
-          const saveEditedEventBtn = document.createElement("button");
-          saveEditedEventBtn.setAttribute("type", "button");
-          saveEditedEventBtn.innerText = "Spara";
-          editCheckboxTd.append(saveEditedEventBtn);
-          let updatedName = document.getElementById("updatedName");
-          let updatedDate = document.getElementById("updatedDate");
-          let updatedCategory = document.getElementById("updatedCategory");
-          let updatedText = document.getElementById("updatedText");
-
-          saveEditedEventBtn.addEventListener("click", function () {
-            //id++; //KAOS
-            saveEvent(id, updatedName.value, updatedDate.value, updatedCategory.value, updatedText.value);
-          })
-
-        }); */
-
-
-    /* eventTr.append(createdEventName, createdEventDate, createdEventCategory, createdEventText, deleteCheckboxTd, editCheckboxTd );*/
-
   }
 
   function clearInputs() {
     eventNameInput.value = "";
     eventDateInput.value = "";
-    eventCategorySelect.value = ""; //håll koll här ang categorySelect istf input
+    eventCategorySelect.value = "";
     eventTextInput.value = "";
   }
 
