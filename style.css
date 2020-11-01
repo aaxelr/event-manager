@@ -77,10 +77,6 @@ a:hover {
     padding: 2px;
 }
 
-button:hover {
-    color: #ffbc7d;
-}
-
 #maincontent {
     width: 95%;
     max-width: 1920px;
@@ -298,32 +294,6 @@ h4 {
     color: #d1d1d1;
 }
 
-.crud {
-    border: 1px solid black;
-    max-width: 80%;
-    border-radius: 12px;
-    padding: 10px;
-    background-color: #13283bf3;
-    color: #d1d1d1;
-    margin: 50px auto;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    height: 550px;
-}
-
-#crudTable {
-    min-width: 600px;
-}
-
-#crudTable,
-th,
-td {
-    border: 2px solid #ffbc7d;
-    border-collapse: collapse;
-    padding: 10px 20px;
-}
-
 .button,
 select {
     background-color: #13283bf3;
@@ -347,14 +317,6 @@ select:hover {
 
 #createEventBtn {
     display: block;
-}
-
-form {
-    float: left;
-    margin-top: 200px;
-    margin-bottom: 10px;
-    margin-left: 100px;
-    color: #ffffff;
 }
 
 .selectDate {
@@ -407,6 +369,7 @@ form {
     float: left;
     margin-top: 50px;
     margin-left: 100px;
+    margin-bottom: 10px;
     color: #ffffff;
 }
 
